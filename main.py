@@ -38,20 +38,6 @@ def get_latest_data_file(file_string: str, data_dir: str | Path = "data")->str:
 # Open patient file as dataframe
 patient_df = pd.read_csv(get_latest_data_file("demographics"), index_col="enterpriseid")
 
-# Convert DOB field to datetime object
-patient_df["patientdob"] = pd.to_datetime(patient_df["patientdob"])
-
-# Calculate patient age from today, first create dataframe that will calculate if it is before the patient's birthday
-before_birthday = (today.month < patient_df["patientdob"].dt.month | 
-                   ((today.month == patient_df["patientdob"].dt.month) & (today.day < patient_df["patientdob"].dt.month)))
-
-patient_df["patient age"] = (today.year - patient_df["patientdob"].dt.year - before_birthday)
-
-# Remove deceased and inactive patients
-patient_df = patient_df[
-    (patient_df["status"] == "a") 
-    & (patient_df["ptnt dcsd ysn"].isna())]
-
 # Open encounter data file as dataframe
 enc_base_df = pd.read_csv(get_latest_data_file("encounter base"), index_col="cln enc id")
 
@@ -81,14 +67,15 @@ enc_w_awv_df = enc_base_df.loc[
         & (enc_base_df["cln enc date"] >= "2025-01-01")
         ]
 
+ids_index = pd.Index(enc_w_awv_df["enterpriseid"].dropna().astype(patient_df.index.dtype))
+
 # Find all patients without a wellness visit since 1/1/2025
-pt_wo_awv_df = patient_df.loc[(patient_df.index.difference(enc_w_awv_df["enterpriseid"]))]
+pt_wo_awv_df = patient_df.loc[(patient_df.index.difference(ids_index))]
 
 
+ov65_wo_awv = pt_wo_awv_df.loc[(pt_wo_awv_df["age"] >= 65)]
 
-ov65_wo_awv = pt_wo_awv_df.loc[(pt_wo_awv_df["patient age"] >= 65)]
-
-ov65_wo_awv.head()
+(ov65_wo_awv.head())
 
 #%% --------------------------COLON CANCER SCREENING----------------------------
 
@@ -124,7 +111,7 @@ colo_complete = ids_colonos.union(ids_flexsig).union(ids_cologua)
 
 pt_wo_colo_df = patient_df[
     ~patient_df.index.isin(colo_complete)
-    & (patient_df["patient age"] >= 45)]
+    & (patient_df["age"] >= 45)]
 
 
 pt_wo_colo_df
