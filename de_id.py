@@ -157,6 +157,7 @@ def get_latest_files(input_dir: Path = INPUT_DIR, targets: dict = DATA_TARGETS) 
 files = get_latest_files()
 
 demographics_df = pd.read_csv(files["demographics"], parse_dates=["patientdob"])
+demographics_df["patientsex"].fillna(value='U', inplace=True)
 enc_base_df     = pd.read_csv(files["encounter base"], parse_dates=["cln enc date"])
 enc_dx_df       = pd.read_csv(files["encounter diagnoses"])
 colog_df        = pd.read_csv(files["cologuard"], parse_dates=["labdate"])
@@ -197,7 +198,7 @@ demographics_df["patient zip"] = demographics_df["patient zip"].apply(lambda zip
                                                                       and (str(zipcode)[0].isdigit()) 
                                                                       else 23400)
 
-print(demographics_df["patient zip"].unique())
+# print(demographics_df["patient zip"].unique())
 
 # Remove inactive and deceased patients
 demographics_df = demographics_df[
