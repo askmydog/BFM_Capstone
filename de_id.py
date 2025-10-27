@@ -258,12 +258,12 @@ ked_df.to_csv(output_dir / "ked.csv", index=False)
 mammo_df.to_csv(output_dir / "mammogram.csv", index=False)
 med_list_df.to_csv(output_dir / "med list.csv", index=False)
 
-colog_df["enterpriseid"]        = colog_df["enterpriseid"].map(id_map)
-surg_hx_df["enterpriseid"]      = surg_hx_df["enterpriseid"].map(id_map)
-a1c_df["enterpriseid"]          = a1c_df["enterpriseid"].map(id_map)
-ked_df["enterpriseid"]          = ked_df["enterpriseid"].map(id_map)
-mammo_df["enterpriseid"]        = mammo_df["enterpriseid"].map(id_map)
-med_list_df["enterpriseid"]     = med_list_df["enterpriseid"].map(id_map)
+# colog_df["enterpriseid"]        = colog_df["enterpriseid"].map(id_map)
+# surg_hx_df["enterpriseid"]      = surg_hx_df["enterpriseid"].map(id_map)
+# a1c_df["enterpriseid"]          = a1c_df["enterpriseid"].map(id_map)
+# ked_df["enterpriseid"]          = ked_df["enterpriseid"].map(id_map)
+# mammo_df["enterpriseid"]        = mammo_df["enterpriseid"].map(id_map)
+# med_list_df["enterpriseid"]     = med_list_df["enterpriseid"].map(id_map)
 
 
 # %%
