@@ -6,6 +6,12 @@ import os
 
 today = pd.Timestamp.today().normalize()
 
+ten_years_ago = today - pd.DateOffset(years=10)
+five_years_ago = today - pd.DateOffset(years=5)
+three_years_ago = today - pd.DateOffset(years=3)
+two_years_ago = today - pd.DateOffset(years=2)
+one_year_ago = today - pd.DateOffset(years=1)
+
 def get_latest_data_file(file_string: str, data_dir: str | Path = "data")->str:
     """Gets requested data file from "data" directory 
 
@@ -36,30 +42,18 @@ def get_latest_data_file(file_string: str, data_dir: str | Path = "data")->str:
     return os.path.join(dir_path,file_list[0])
 
 # Open patient file as dataframe
-patient_df = pd.read_csv(get_latest_data_file("demographics"), index_col="enterpriseid")
+demographics_df = pd.read_csv(get_latest_data_file("demographics"), index_col="enterpriseid")
 
-# Open encounter data file as dataframe
-enc_base_df = pd.read_csv(get_latest_data_file("encounter base"), index_col="cln enc id")
-
-# Convert clinical encounter date to datetime object
-enc_base_df["cln enc date"] = pd.to_datetime(enc_base_df["cln enc date"])
-
-# Open surgical history file as dataframe
-surghx_df = pd.read_csv(get_latest_data_file("surgical history"))
-
-# Convert surgical history date to datetime object
-surghx_df["surg hist date"] = pd.to_datetime(surghx_df["surg hist date"])
-
-# Open cologuard file as dataframe
-cologuard_df = pd.read_csv(get_latest_data_file("cologuard"))
-
-# Convert cologuard date to datetime object
-cologuard_df["labdate"] = pd.to_datetime(cologuard_df["labdate"])
 
 
 #%% ---------------------------WELLNESS VISITS-----------------------------
-# Filter appointments by wellness visits occuring on or after 1/1/2025
 
+# Open encounter data file as dataframe
+enc_base_df = pd.read_csv(get_latest_data_file("encounter base"), 
+                          index_col="cln enc id",
+                          parse_dates=["cln enc date"])
+
+# Filter appointments by wellness visits occuring on or after 1/1/2025
 pattern = "|".join(["well", "awv"])
 
 enc_w_awv_df = enc_base_df.loc[
@@ -67,24 +61,26 @@ enc_w_awv_df = enc_base_df.loc[
         & (enc_base_df["cln enc date"] >= "2025-01-01")
         ]
 
-ids_index = pd.Index(enc_w_awv_df["enterpriseid"].dropna().astype(patient_df.index.dtype))
+ids_index = pd.Index(enc_w_awv_df["enterpriseid"].dropna().astype(demographics_df.index.dtype))
 
 # Find all patients without a wellness visit since 1/1/2025
-pt_wo_awv_df = patient_df.loc[(patient_df.index.difference(ids_index))]
+pt_wo_awv_df = demographics_df.loc[(demographics_df.index.difference(ids_index))]
+
+ov65_wo_awv = pt_wo_awv_df.loc[(pt_wo_awv_df["age"] >= 40)]
+
+ov65_wo_awv.head()
 
 
-ov65_wo_awv = pt_wo_awv_df.loc[(pt_wo_awv_df["age"] >= 65)]
-
-(ov65_wo_awv.head())
 
 #%% --------------------------COLON CANCER SCREENING----------------------------
 
-today = pd.Timestamp.today().normalize()
+# Open surgical history file as dataframe
+surghx_df = pd.read_csv(get_latest_data_file("surgical history"),
+                        parse_dates=["surg hist date"])
 
-ten_years_ago = today - pd.DateOffset(years=10)
-five_years_ago = today - pd.DateOffset(years=5)
-three_years_ago = today - pd.DateOffset(years=3)
-
+# Open cologuard file as dataframe
+cologuard_df = pd.read_csv(get_latest_data_file("cologuard"),
+                           parse_dates=["labdate"])
 
 # Filter all colonoscopies occurring in the past 10 years
 colonos_df = surghx_df.loc[
@@ -109,12 +105,12 @@ ids_cologua = pd.Index(cologua_df["enterpriseid"].dropna().unique())
 
 colo_complete = ids_colonos.union(ids_flexsig).union(ids_cologua)
 
-pt_wo_colo_df = patient_df[
-    ~patient_df.index.isin(colo_complete)
-    & (patient_df["age"] >= 45)]
+pt_wo_colo_df = demographics_df[
+    ~demographics_df.index.isin(colo_complete)
+    & (demographics_df["age"] >= 45)]
 
 
-pt_wo_colo_df
+pt_wo_colo_df.head()
 
 # Generate a dataframe of all patients with completed colon cancer screening modalities 
 # colo_complete_df = pd.concat([
@@ -126,10 +122,32 @@ pt_wo_colo_df
 
 # patient_df.join(encounter_df, on="enterpriseid")[[]]
 
+#%% ---------------------------BREAST CANCER SCREENING------------------------------
 
+mammogram_df = pd.read_csv(get_latest_data_file("mammogram"), parse_dates=["dt f lst mmmgrm"])
 
+mammo_df = mammogram_df[mammogram_df["dt f lst mmmgrm"] >= two_years_ago]
 
+pt_wo_mammo = demographics_df[
+    (~demographics_df.index.isin(mammo_df["enterpriseid"])) 
+    & (demographics_df["age"] >= 40)
+    & (demographics_df["patientsex"] == "F")
+]
+
+pt_wo_mammo.head()
+
+#%% -------------------------DIABETIC SCREENING-----------------------
+
+a1c_df = pd.read_csv(get_latest_data_file("a1c"), parse_dates=["labdate"])
+
+screen_a1c_df = a1c_df[a1c_df["labdate"] >= one_year_ago]
+
+pt_wo_a1c = demographics_df[
+    ~demographics_df.index.isin(screen_a1c_df["enterpriseid"])
+    & demographics_df["age"] >= 40]
+
+pt_wo_a1c.head() #ERROR RETURNS NO ROWS
 
 #%%
 
-patient_df["ptnt dcsd ysn"].isna()
+demographics_df["patientsex"].unique()
