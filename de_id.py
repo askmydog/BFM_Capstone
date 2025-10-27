@@ -166,7 +166,7 @@ ked_df          = pd.read_csv(files["ked"], parse_dates=["labdate"])
 mammo_df        = pd.read_csv(files["mammogram"], parse_dates=["dt f lst mmmgrm"])
 med_list_df     = pd.read_csv(files["med list"])
 
-#%% --------------- Clean up Demographics dataframe Calculate ages (vectorized, correct), anonymize zip and remove inactive and desceased patients -------------------------
+# --------------- Clean up Demographics dataframe Calculate ages (vectorized, correct), anonymize zip and remove inactive and desceased patients -------------------------
 today = pd.Timestamp.today().normalize()
 
 # Ensure datetime
@@ -211,7 +211,7 @@ del demographics_df["status"]
 del demographics_df["ptnt dcsd ysn"]
 
 
-#%% ------------------------- Assign new random IDs (fast, reproducible) -------------------
+# ------------------------- Assign new random IDs (fast, reproducible) -------------------
 # 1) Unique enterprise IDs
 ent = demographics_df["enterpriseid"].astype("Int64")  # align dtype; change if yours is str
 uids = ent.dropna().unique()
@@ -242,20 +242,20 @@ med_list_df["enterpriseid"]     = med_list_df["enterpriseid"].map(id_map)
 # assert demographics_df["rand_id"].is_unique, "Random IDs are not unique."
 
 # display(demographics_df.head(), enc_base_df.head(), id_key.head())
-#%% ------------------Copy each dataframe to a corresponding csv file----------------
+# ------------------Copy each dataframe to a corresponding csv file----------------
 
 output_dir = Path.cwd() / Path("data")
 
 
-demographics_df.to_csv(output_dir / "demographics", index=False)
-enc_base_df.to_csv(output_dir / "encounter base", index=False)
-enc_dx_df.to_csv(output_dir / "encounter diagnoses", index=False)
-colog_df.to_csv(output_dir / "cologuard", index=False)
-surg_hx_df.to_csv(output_dir / "surgical history", index=False)
-a1c_df.to_csv(output_dir / "a1c", index=False)
-ked_df.to_csv(output_dir / "ked", index=False)
-mammo_df.to_csv(output_dir / "mammogram", index=False)
-med_list_df.to_csv(output_dir / "med list", index=False)
+demographics_df.to_csv(output_dir / "demographics.csv", index=False)
+enc_base_df.to_csv(output_dir / "encounter base.csv", index=False)
+enc_dx_df.to_csv(output_dir / "encounter diagnoses.csv", index=False)
+colog_df.to_csv(output_dir / "cologuard.csv", index=False)
+surg_hx_df.to_csv(output_dir / "surgical history.csv", index=False)
+a1c_df.to_csv(output_dir / "a1c.csv", index=False)
+ked_df.to_csv(output_dir / "ked.csv", index=False)
+mammo_df.to_csv(output_dir / "mammogram.csv", index=False)
+med_list_df.to_csv(output_dir / "med list.csv", index=False)
 
 colog_df["enterpriseid"]        = colog_df["enterpriseid"].map(id_map)
 surg_hx_df["enterpriseid"]      = surg_hx_df["enterpriseid"].map(id_map)
