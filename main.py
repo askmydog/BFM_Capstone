@@ -3,6 +3,7 @@ import pandas as pd
 from  pathlib import Path
 from datetime import datetime, timedelta
 import os
+import re
 
 today = pd.Timestamp.today().normalize()
 
@@ -125,6 +126,7 @@ pt_wo_colo_df.head()
 #%% ---------------------------BREAST CANCER SCREENING------------------------------
 
 mammogram_df = pd.read_csv(get_latest_data_file("mammogram"), parse_dates=["dt f lst mmmgrm"])
+mammogram_df["dt f lst mmmgrm"] = pd.to_datetime(mammogram_df["dt f lst mmmgrm"], errors="coerce")
 
 mammo_df = mammogram_df[mammogram_df["dt f lst mmmgrm"] >= two_years_ago]
 
@@ -140,14 +142,51 @@ pt_wo_mammo.head()
 
 a1c_df = pd.read_csv(get_latest_data_file("a1c"), parse_dates=["labdate"])
 
-screen_a1c_df = a1c_df[a1c_df["labdate"] >= one_year_ago]
+screen_a1c_df = a1c_df[a1c_df["labdate"] >= two_years_ago]
 
 pt_wo_a1c = demographics_df[
-    ~demographics_df.index.isin(screen_a1c_df["enterpriseid"])
-    & demographics_df["age"] >= 40]
+    (~demographics_df.index.isin(screen_a1c_df["enterpriseid"]))
+    & (demographics_df["age"] >= 40)
+    ]
 
-pt_wo_a1c.head() #ERROR RETURNS NO ROWS
+pt_wo_a1c.head() 
+
+#%% -----------------------A1C OVER 9------------------------------
+
+a1c_df = pd.read_csv(get_latest_data_file("a1c"), parse_dates=["labdate"], dtype={"labvalue":str})
+# a1c_df["labvalue"] = a1c_df["labvalue"].astype(str)
+
+def format_a1c(val:str) -> float | None:
+    if isinstance(val, str):
+        pat = r"\b\d{1,2}(?:\.\d{1,2})?\b"
+        match = re.match(pat,val)
+        if match and (float(match[0]) <20):
+            return float(match[0])
+        return None
+    else:
+        return None 
+
+
+a1c_df["labvalue"] = a1c_df["labvalue"].apply(format_a1c)
+
+
+# print(sorted(a1c_df["labvalue"].unique()))
+
+a1c_over_9_df = a1c_df[
+    (a1c_df["labdate"] >= two_years_ago)
+    & (a1c_df["labvalue"] >= 9)
+    ]
+
+pt_w_uncont_dm = demographics_df[demographics_df.index.isin(a1c_over_9_df["enterpriseid"])]
+
+pt_w_uncont_dm.head()
 
 #%%
 
-demographics_df["patientsex"].unique()
+a1c_df = pd.read_csv(get_latest_data_file("a1c"), parse_dates=["labdate"])
+
+
+
+a1c_df["labvalue"].unique()
+
+# %%
