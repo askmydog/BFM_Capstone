@@ -562,7 +562,7 @@ enterpriseid,patientsex,patient zip,prim prvdr,patient primary ins pkg name,pati
 653741,F,23400,PMG_RCB_Bateson_J,BCBS-VA - FEP (PPO),Group Policy,*SELF PAY*,Personal Payment (Cash - No Insurance),"Bachelor's degree (e.g., BA, AB, BS)",,MARRIED,Married,Never smoker,Occasional,No,,,,,,,Yes,No,41
 816301,F,23500,PMG_RCB_Alexander_K,Tricare East - Humana Military Tricare (TRICARE),Other,*SELF PAY*,Personal Payment (Cash - No Insurance),"Master's degree (e.g., MA, MS, MEng, MEd, MSW, MBA)",,MARRIED,Married,Never smoker,Occasional,No,,,,,,,Yes,No,39
 439092,M,23400,PMG_RCB_DelPeral_H,BCBS-VA - FEP (PPO),Group Policy,*SELF PAY*,Personal Payment (Cash - No Insurance),"Associate degree: occupational, technical, or vocational program",,MARRIED,Married,Former smoker,Heavy,Yes,,,,,,,No,,46
-711478,F,23400,,BCBS-VA,Group Policy,*SELF PAY*,Personal Payment (Cash - No Insurance),,,SINGLE,,Never smoker,,,,,,,,,,,27
+711478,F,23400,,BCBS-VA,Group Policy,*SELF PAY*,Personal Payment (Cash - No Insurance),,,SINGLE,,Never smoker,,,,,,,,,,,28
 299923,M,23400,PMG_RCB_DelPeral_H,BCBS-VA - HealthKeepers (POS),Group Policy,*SELF PAY*,Personal Payment (Cash - No Insurance),,,MARRIED,,Never smoker,,,,,,,,,,,51
 462336,F,22000,,BCBS-VA (PPO),Group Policy,*SELF PAY*,Personal Payment (Cash - No Insurance),,,SINGLE,,Never smoker,,,,,,,,,,,48
 326143,M,23400,PMG_RCB_Howell_J,Cigna (HMO),Health Maintenance Organization (HMO),*SELF PAY*,Personal Payment (Cash - No Insurance),"Bachelor's degree (e.g., BA, AB, BS)",,SINGLE,Single,Never smoker,Occasional,No,,,,,,,Yes,,29
@@ -1260,7 +1260,7 @@ enterpriseid,patientsex,patient zip,prim prvdr,patient primary ins pkg name,pati
 910501,M,23400,PMG_RCB_Howell_J,BCBS-VA (PPO),Group Policy,*SELF PAY*,Personal Payment (Cash - No Insurance),,,SINGLE,,Never smoker,Occasional,,,,,,,,,,40
 958638,M,23400,PMG_RCB_Blackwood_Ro,BCBS-VA,Group Policy,*SELF PAY*,Personal Payment (Cash - No Insurance),"Doctoral degree (example:PhD, EdD)",,MARRIED,Married,Never smoker,Moderate,No,,,,,,,Yes,,55
 939104,M,23300,PMG_RCB_Howell_J,Sentara Health Plans,Commercial,*SELF PAY*,Personal Payment (Cash - No Insurance),High school graduate,,MARRIED,Married,Former smoker,Occasional,Yes,,,,,,,Yes,No,47
-810678,F,23300,PMG_RCB_Howell_J,BCBS-VA - HealthKeepers (HMO),Group Policy,*SELF PAY*,Personal Payment (Cash - No Insurance),"Bachelor's degree (e.g., BA, AB, BS)",,MARRIED,Married,Never smoker,Occasional,No,,,,,,,Yes,No,55
+810678,F,23300,PMG_RCB_Howell_J,BCBS-VA - HealthKeepers (HMO),Group Policy,*SELF PAY*,Personal Payment (Cash - No Insurance),"Bachelor's degree (e.g., BA, AB, BS)",,MARRIED,Married,Never smoker,Occasional,No,,,,,,,Yes,No,56
 783821,M,23300,PMG_RCB_Blackwood_Ro,BCBS-VA - HealthKeepers (HMO),Group Policy,*SELF PAY*,Personal Payment (Cash - No Insurance),"Bachelor's degree (e.g., BA, AB, BS)",,MARRIED,Married,Current some days smoker,Occasional,,,,,,,,Yes,No,59
 123536,F,23300,PMG_RCB_Howell_J,BCBS-VA,Group Policy,*SELF PAY*,Personal Payment (Cash - No Insurance),,,SINGLE,,Never smoker,,No,,,,,,,,,27
 486643,M,23500,PMG_RCB_Koplin_S,Medicare-VA (Medicare),Medicare Part B,Mutual of Omaha (Medicare Supplement),Supplemental Policy,High school graduate,,MARRIED,Married,Never smoker,,No,30 plus years,Yes: walks without restrictions,No,No,No,Not at all,Yes,,83
@@ -1339,7 +1339,7 @@ enterpriseid,patientsex,patient zip,prim prvdr,patient primary ins pkg name,pati
 111394,F,23400,PMG_RCB_Amos_J,BCBS-VA (PPO),Group Policy,*SELF PAY*,Personal Payment (Cash - No Insurance),,,MARRIED,,Never smoker,,,,,,,,,,,51
 936917,M,23400,PMG_RCB_DelPeral_H,BCBS-VA - HealthKeepers (POS),Group Policy,*SELF PAY*,Personal Payment (Cash - No Insurance),,,MARRIED,,Never smoker,,,,,,,,,,,60
 527514,F,23400,PMG_RCB_Alexander_K,Medicare-VA (Medicare),Medicare Part B,USAA Life Insurance (Medicare Supplement),Supplemental Policy,"Associate degree: occupational, technical, or vocational program",,WIDOWED,Widowed,Former smoker,Occasional,No,1,Yes: walks without restrictions,No,No,No,Not at all,No,,76
-793984,M,23400,PMG_RCB_Alexander_K,BCBS-VA (PPO),Group Policy,*SELF PAY*,Personal Payment (Cash - No Insurance),,,SINGLE,,Never smoker,,No,,,,,,,,,20
+793984,M,23400,PMG_RCB_Alexander_K,BCBS-VA (PPO),Group Policy,*SELF PAY*,Personal Payment (Cash - No Insurance),,,SINGLE,,Never smoker,,No,,,,,,,,,21
 770558,F,23400,PMG_RCB_Alexander_K,Sentara Health Plans,Commercial,*SELF PAY*,Personal Payment (Cash - No Insurance),,,MARRIED,,Former smoker,,,,,,,,,,,40
 998392,F,23500,PMG_RCB_Amos_J,UMR - GEHA - United Healthcare - DOS 01/01/2025 and After,Commercial,*SELF PAY*,Personal Payment (Cash - No Insurance),,,MARRIED,,Former smoker,Occasional,,,,,,,,,,69
 560035,M,23400,PMG_RCB_Howell_J,BCBS-VA,Group Policy,*SELF PAY*,Personal Payment (Cash - No Insurance),,,MARRIED,,Never smoker,,,,,,,,,,,61
@@ -1348,7 +1348,7 @@ enterpriseid,patientsex,patient zip,prim prvdr,patient primary ins pkg name,pati
 686699,M,23400,PMG_RCB_Koplin_S,Medicare-VA (Medicare),Medicare Part B,Tricare for Life (TRICARE - Medicare Supplement),Supplemental Policy,"Bachelor's degree (e.g., BA, AB, BS)",,MARRIED,Married,Former smoker,Moderate,No,48 years,Yes: walks without restrictions,No,Yes,No,Not at all,No,No,85
 420000,M,23300,PMG_RCB_Howell_J,Aetna (POS II),Commercial,*SELF PAY*,Personal Payment (Cash - No Insurance),,,SINGLE,,Never smoker,,,,,,,,,,,26
 777531,M,23400,PMG_RCB_Howell_J,Cigna,Commercial,*SELF PAY*,Personal Payment (Cash - No Insurance),,,SINGLE,,Never smoker,,,,,,,,,,,31
-995772,M,23300,PMG_RCB_DelPeral_H,BCBS-VA (PPO),Group Policy,*SELF PAY*,Personal Payment (Cash - No Insurance),High school graduate,,SINGLE,Single,Never smoker,,Yes,,,,,,,Yes,No,20
+995772,M,23300,PMG_RCB_DelPeral_H,BCBS-VA (PPO),Group Policy,*SELF PAY*,Personal Payment (Cash - No Insurance),High school graduate,,SINGLE,Single,Never smoker,,Yes,,,,,,,Yes,No,21
 846457,F,23500,PMG_RCB_Alexander_K,Aetna International - Aetna (PPO),Commercial,*SELF PAY*,Personal Payment (Cash - No Insurance),,,MARRIED,,Former smoker,Occasional,,,,,,,,,,48
 269250,F,23400,PMG_RCB_Howell_J,BCBS-VA,Group Policy,*SELF PAY*,Personal Payment (Cash - No Insurance),,,MARRIED,Married,Never smoker,Occasional,,,,,,,,,,60
 300231,F,23300,PMG_RCB_Kucher_D,Medicare-VA (Medicare),Medicare Part B,Aetna (Medicare Supplement),Supplemental Policy,High school graduate,,SINGLE,Widowed,Former smoker,Occasional,No,,Yes: walks without restrictions,No,Yes,No,Not at all,Yes,,76
@@ -1486,7 +1486,7 @@ enterpriseid,patientsex,patient zip,prim prvdr,patient primary ins pkg name,pati
 236801,F,23400,PMG_RCB_Alexander_K,Humana (Medicare Replacement/Advantage - PPO),Medicare Part B,*SELF PAY*,Personal Payment (Cash - No Insurance),11th grade,,MARRIED,Married,Current every day smoker,Occasional,No,11 years,Yes: walks without restrictions,No,No,No,Not at all,No,,76
 415212,M,23400,PMG_RCB_zYauilla_M,*SELF PAY*,Personal Payment (Cash - No Insurance),*SELF PAY*,Personal Payment (Cash - No Insurance),,,MARRIED,,,,,,,,,,,,,27
 239433,M,23400,PMG_RCB_Howell_J,BCBS-VA - HealthKeepers (POS),Group Policy,*SELF PAY*,Personal Payment (Cash - No Insurance),,,MARRIED,,Former smoker,Occasional,No,,,,,,,,,60
-480646,F,23300,PMG_RCB_Blackwood_Ro,Medicare-VA (Medicare),Medicare Part B,BCBS-VA - FEP (PPO),Group Policy,"Bachelor's degree (e.g., BA, AB, BS)",,MARRIED,Married,Never smoker,,No,25,Yes: walks without restrictions,No,No,No,Not at all,No,No,66
+480646,F,23300,PMG_RCB_Blackwood_Ro,Medicare-VA (Medicare),Medicare Part B,BCBS-VA - FEP (PPO),Group Policy,"Bachelor's degree (e.g., BA, AB, BS)",,MARRIED,Married,Never smoker,,No,25,Yes: walks without restrictions,No,No,No,Not at all,No,No,67
 860526,F,23400,PMG_RCB_Howell_J,Sentara Health Plans,Commercial,*SELF PAY*,Personal Payment (Cash - No Insurance),,,SINGLE,Single,Never smoker,,No,,,,,,,Yes,,30
 564086,M,23500,PMG_RCB_DelPeral_H,Aetna,Commercial,*SELF PAY*,Personal Payment (Cash - No Insurance),,,SINGLE,,,,,,,,,,,,,38
 837770,F,23400,PMG_RCB_Amos_J,BCBS-VA - FEP (PPO),Group Policy,*SELF PAY*,Personal Payment (Cash - No Insurance),,,MARRIED,,Never smoker,Occasional,No,,,,,,,,,46
@@ -1615,7 +1615,7 @@ enterpriseid,patientsex,patient zip,prim prvdr,patient primary ins pkg name,pati
 680910,M,23400,PMG_RCB_DelPeral_H,BCBS-VA - HealthKeepers (POS),Group Policy,*SELF PAY*,Personal Payment (Cash - No Insurance),"Some college, no degree",,DIVORCED,Single,Former smoker,,No,,,,,,,Yes,,52
 990282,F,23300,PMG_RCB_Howell_J,Sentara Health Plans,Commercial,*SELF PAY*,Personal Payment (Cash - No Insurance),,,SINGLE,,Former smoker,,,,,,,,,,,37
 541772,M,23500,PMG_RCB_Howell_J,BCBS-VA,Group Policy,*SELF PAY*,Personal Payment (Cash - No Insurance),,,UNKNOWN,,Never smoker,,,,,,,,,,,17
-390174,F,23400,PMG_RCB_Howell_J,Sentara Health Plans,Commercial,*SELF PAY*,Personal Payment (Cash - No Insurance),,,DIVORCED,,Never smoker,,,,,,,,,,,56
+390174,F,23400,PMG_RCB_Howell_J,Sentara Health Plans,Commercial,*SELF PAY*,Personal Payment (Cash - No Insurance),,,DIVORCED,,Never smoker,,,,,,,,,,,57
 298554,F,23300,PMG_RCB_Koplin_S,Medicare-VA (Medicare),Medicare Part B,Tricare for Life (TRICARE - Medicare Supplement),Supplemental Policy,,,MARRIED,Married,Never smoker,Occasional,No,51 years,Yes: walks without restrictions,No,No,Yes,Only a little,No,,79
 881485,M,23400,PMG_RCB_Blackwood_Ro,*SELF PAY*,Personal Payment (Cash - No Insurance),*SELF PAY*,Personal Payment (Cash - No Insurance),,,,,,,,,,,,,,,,12
 293412,F,23500,PMG_RCB_Howell_J,BCBS-VA - HealthKeepers (HMO),Group Policy,*SELF PAY*,Personal Payment (Cash - No Insurance),,,UNKNOWN,,Never smoker,,,,,,,,,,,45
@@ -1815,7 +1815,7 @@ enterpriseid,patientsex,patient zip,prim prvdr,patient primary ins pkg name,pati
 507101,M,23400,PMG_RCB_DelPeral_H,BCBS-VA - HealthKeepers (POS),Group Policy,*SELF PAY*,Personal Payment (Cash - No Insurance),High school graduate,,SINGLE,Single,Never smoker,,Yes,,,,,,,No,No,20
 947137,M,23500,PMG_RCB_Koplin_S,Cigna,Commercial,*SELF PAY*,Personal Payment (Cash - No Insurance),,,MARRIED,,Never smoker,,,,,,,,,,,65
 850257,F,23400,PMG_RCB_Howell_J,BCBS-VA,Group Policy,*SELF PAY*,Personal Payment (Cash - No Insurance),,,MARRIED,Married,Never smoker,Moderate,,,,,,,,,,54
-619237,M,23400,PMG_RCB_Amos_J,BCBS-VA,Group Policy,*SELF PAY*,Personal Payment (Cash - No Insurance),Associate degree: academic program,,MARRIED,Married,Never smoker,,No,,,,,,,Yes,No,51
+619237,M,23400,PMG_RCB_Amos_J,BCBS-VA,Group Policy,*SELF PAY*,Personal Payment (Cash - No Insurance),Associate degree: academic program,,MARRIED,Married,Never smoker,,No,,,,,,,Yes,No,52
 185851,F,23400,PMG_RCB_Howell_J,BCBS-VA - Healthkeepers Plus (Medicaid Replacement - HMO),Group Policy,*SELF PAY*,Personal Payment (Cash - No Insurance),,,SINGLE,,,,,,,,,,,,,27
 441956,M,23300,PMG_RCB_DelPeral_H,Oxford Health Plans - United Healthcare (PPO),Commercial,*SELF PAY*,Personal Payment (Cash - No Insurance),"Bachelor's degree (e.g., BA, AB, BS)",,MARRIED,Married,Former smoker,Occasional,Yes,,,,,,,Yes,,51
 856028,M,23400,PMG_RCB_Alexander_K,Medicare-VA (Medicare),Medicare Part B,*SELF PAY*,Personal Payment (Cash - No Insurance),"Associate degree: occupational, technical, or vocational program",,MARRIED,Married,Never smoker,,No,28 years,Yes: walks with assistive device(s),No,No,No,Not at all,No,,69
@@ -3506,7 +3506,7 @@ enterpriseid,patientsex,patient zip,prim prvdr,patient primary ins pkg name,pati
 387457,M,23400,PMG_RCB_DelPeral_H,BCBS-VA - HealthKeepers (POS),Group Policy,*SELF PAY*,Personal Payment (Cash - No Insurance),"Bachelor's degree (e.g., BA, AB, BS)",,UNKNOWN,Married,Never smoker,Occasional,No,,,,,,,Yes,,61
 394252,M,23400,PMG_RCB_Howell_J,Cigna,Commercial,*SELF PAY*,Personal Payment (Cash - No Insurance),,,MARRIED,,Never smoker,Occasional,,,,,,,,,,64
 780151,M,23300,PMG_RCB_Howell_J,BCBS-VA - FEP (PPO),Group Policy,*SELF PAY*,Personal Payment (Cash - No Insurance),,,MARRIED,,Never smoker,,No,,,,,,,,,56
-267214,F,23500,PMG_RCB_Howell_J,Aetna,Commercial,*SELF PAY*,Personal Payment (Cash - No Insurance),,,UNKNOWN,,Never smoker,,,,,,,,,,,49
+267214,F,23500,PMG_RCB_Howell_J,Aetna,Commercial,*SELF PAY*,Personal Payment (Cash - No Insurance),,,UNKNOWN,,Never smoker,,,,,,,,,,,50
 636446,F,23400,PMG_RCB_DelPeral_H,Aetna (POS II),Commercial,*SELF PAY*,Personal Payment (Cash - No Insurance),"Bachelor's degree (e.g., BA, AB, BS)",,MARRIED,Married,Never smoker,,No,,,,,,,Yes,No,27
 977183,F,23300,PMG_RCB_Bateson_J,BCBS-VA - HealthKeepers (POS),Group Policy,*SELF PAY*,Personal Payment (Cash - No Insurance),,,UNKNOWN,,Never smoker,,,,,,,,,,,26
 101385,M,23400,PMG_RCB_zYauilla_M,BCBS-VA (PPO),Group Policy,*SELF PAY*,Personal Payment (Cash - No Insurance),,,UNKNOWN,,Never smoker,Occasional,,,,,,,,,,31
@@ -3905,7 +3905,7 @@ enterpriseid,patientsex,patient zip,prim prvdr,patient primary ins pkg name,pati
 808669,M,23500,PMG_RCB_Howell_J,BCBS-Kansas City (PPO),Commercial,*SELF PAY*,Personal Payment (Cash - No Insurance),,,SINGLE,,Former smoker,,,,,,,,,,,34
 558227,F,23400,PMG_RCB_Howell_J,BCBS-VA - HealthKeepers (POS),Group Policy,*SELF PAY*,Personal Payment (Cash - No Insurance),,,UNKNOWN,,Never smoker,,No,,,,,,,,,32
 981804,F,23300,PMG_RCB_Howell_J,BCBS-CA Blue Cross of California,Group Policy,*SELF PAY*,Personal Payment (Cash - No Insurance),"Some college, no degree",,SEPARATED,Separated,Never smoker,Occasional,No,,,,,,,Yes,No,54
-587264,M,23400,PMG_RCB_Howell_J,BCBS-VT,Group Policy,*SELF PAY*,Personal Payment (Cash - No Insurance),,,MARRIED,,Never smoker,,,,,,,,,,,43
+587264,M,23400,PMG_RCB_Howell_J,BCBS-VT,Group Policy,*SELF PAY*,Personal Payment (Cash - No Insurance),,,MARRIED,,Never smoker,,,,,,,,,,,44
 405733,F,23400,PMG_RCB_Howell_J,BCBS-VA (PPO),Group Policy,*SELF PAY*,Personal Payment (Cash - No Insurance),High school graduate,,SINGLE,Single,Former smoker,Occasional,,,,,,,,Yes,Yes,36
 277378,M,23400,PMG_RCB_Howell_J,BCBS-VA (PPO),Group Policy,*SELF PAY*,Personal Payment (Cash - No Insurance),,,UNKNOWN,,Never smoker,,No,,,,,,,,,25
 811663,M,23400,PMG_RCB_zYauilla_M,Sentara Health Plans,Commercial,*SELF PAY*,Personal Payment (Cash - No Insurance),"Some college, no degree",,SINGLE,Single,Former smoker,Occasional,Yes,,,,,,,Yes,,27
@@ -4218,7 +4218,7 @@ enterpriseid,patientsex,patient zip,prim prvdr,patient primary ins pkg name,pati
 881679,F,23300,PMG_RCB_Alexander_K,Blackhawk Claims Services - Reliance Choice - PHCS (PPO),Commercial,*SELF PAY*,Personal Payment (Cash - No Insurance),,,MARRIED,,Never smoker,,No,,,,,,,,,60
 802522,M,23500,PMG_RCB_Howell_J,Tricare East - Humana Military Tricare (TRICARE),Other,WEB-TPA (TRICARE Supplement),Supplemental Policy,,,DIVORCED,,Never smoker,Occasional,,,,,,,,,,49
 276785,F,23400,PMG_RCB_Amos_J,UnitedHealth Shared Services (Indemnity),Commercial,*SELF PAY*,Personal Payment (Cash - No Insurance),Associate degree: academic program,,MARRIED,,Never smoker,Occasional,No,,,,,,,,Yes,26
-315139,M,23400,PMG_RCB_Horn_N,United Healthcare,Commercial,*SELF PAY*,Personal Payment (Cash - No Insurance),,,,,,,,,,,,,,,,15
+315139,M,23400,PMG_RCB_Horn_N,United Healthcare,Commercial,*SELF PAY*,Personal Payment (Cash - No Insurance),,,,,,,,,,,,,,,,16
 748320,M,23500,PMG_RCB_Koplin_S,Humana - Gold Plus (Medicare Replacement/Advantage - HMO),Medicare Part B,*SELF PAY*,Personal Payment (Cash - No Insurance),,,UNKNOWN,,Current every day smoker,,No,,,,,,,,,68
 851006,F,23300,PMG_RCB_Howell_J,BCBS-VA - HealthKeepers (HMO),Group Policy,*SELF PAY*,Personal Payment (Cash - No Insurance),,,MARRIED,,Never smoker,,No,,,,,,,,,36
 878794,F,23400,PMG_RCB_Alexander_K,UMR,Commercial,*SELF PAY*,Personal Payment (Cash - No Insurance),,,DIVORCED,,Current every day smoker,,No,,,,,,,,,44
@@ -4568,7 +4568,7 @@ enterpriseid,patientsex,patient zip,prim prvdr,patient primary ins pkg name,pati
 294074,F,23400,PMG_RCB_Bateson_J,BCBS-VA (PPO),Group Policy,*SELF PAY*,Personal Payment (Cash - No Insurance),"Master's degree (e.g., MA, MS, MEng, MEd, MSW, MBA)",Not very difficult,SINGLE,Divorced,Never smoker,Occasional,No,,Yes: walks without restrictions,No,No,No,Very much,Yes,,41
 453700,F,23400,PMG_RCB_Howell_J,BCBS-VA - FEP (PPO),Group Policy,Tricare East - Humana Military Tricare (TRICARE),Other,,,MARRIED,,Former smoker,Moderate,No,7 months,,,,,,,,48
 792580,M,27900,PMG_RCB_Akragorn_E,BCBS-VA,Group Policy,*SELF PAY*,Personal Payment (Cash - No Insurance),,,UNKNOWN,,,,,,,,,,,,,41
-162616,F,23400,PMG_RCB_Akragorn_E,Cigna,Commercial,*SELF PAY*,Personal Payment (Cash - No Insurance),,,MARRIED,,Never smoker,Occasional,No,,,,,,,,,37
+162616,F,23400,PMG_RCB_Akragorn_E,Cigna,Commercial,*SELF PAY*,Personal Payment (Cash - No Insurance),,,MARRIED,,Never smoker,Occasional,No,,,,,,,,,38
 523934,F,23400,PMG_RCB_Alexander_K,Sentara Health Plans,Commercial,*SELF PAY*,Personal Payment (Cash - No Insurance),,,UNKNOWN,,Never smoker,Occasional,No,,,,,,,,,52
 206622,M,23200,PMG_RCB_Howell_J,Cigna,Commercial,*SELF PAY*,Personal Payment (Cash - No Insurance),"Some college, no degree",Not difficult at all,SINGLE,Single,Former smoker,Moderate,Yes,1 year,Yes: walks without restrictions,No,No,Yes,Very much,Yes,,33
 219466,F,23400,PMG_RCB_DelPeral_H,Sentara Health Plans,Commercial,CHAMPVA (CHAMPVA),Commercial,"Bachelor's degree (e.g., BA, AB, BS)",,MARRIED,Married,Never smoker,Moderate,No,,,,,,,Yes,,37
@@ -4739,7 +4739,7 @@ enterpriseid,patientsex,patient zip,prim prvdr,patient primary ins pkg name,pati
 281338,F,23400,PMG_RCB_Koplin_S,Humana (Medicare Replacement/Advantage - HMO),Medicare Part B,*SELF PAY*,Personal Payment (Cash - No Insurance),"Some college, no degree",Not difficult at all,DIVORCED,Divorced,Never smoker,Moderate,No,3 months,Yes: walks without restrictions,No,No,No,To some extent,No,No,70
 402129,F,23400,PMG_RCB_Bateson_J,Tricare East - Humana Military Tricare - Select (TRICARE - PPO),Other,*SELF PAY*,Personal Payment (Cash - No Insurance),,,MARRIED,Married,Former smoker,Occasional,No,,,,,,,,,30
 374856,F,23400,PMG_RCB_Alexander_K,Tricare East - Humana Military Tricare (TRICARE),Other,*SELF PAY*,Personal Payment (Cash - No Insurance),,,MARRIED,,Never smoker,Occasional,,,,,,,,,,28
-882396,M,23400,PMG_RCB_Amos_J,Cigna - NALC Health Benefit Plan,Commercial,*SELF PAY*,Personal Payment (Cash - No Insurance),,,UNKNOWN,Single,Former smoker,Occasional,No,,,,,,,Yes,,44
+882396,M,23400,PMG_RCB_Amos_J,Cigna - NALC Health Benefit Plan,Commercial,*SELF PAY*,Personal Payment (Cash - No Insurance),,,UNKNOWN,Single,Former smoker,Occasional,No,,,,,,,Yes,,45
 224987,M,23400,PMG_RCB_Kucher_D,Sentara Health Plans,Commercial,*SELF PAY*,Personal Payment (Cash - No Insurance),,,UNKNOWN,Domestic partner,Former smoker,Occasional,Yes,,,,,,,No,No,35
 573011,F,23500,PMG_RCB_Amos_J,Sentara Health Plans (POS),Commercial,*SELF PAY*,Personal Payment (Cash - No Insurance),,,UNKNOWN,,Never smoker,Occasional,No,,,,,,,,,32
 188517,M,23400,PMG_RCB_DelPeral_H,Sentara Health Plans,Commercial,*SELF PAY*,Personal Payment (Cash - No Insurance),,,SINGLE,,Never smoker,Occasional,No,,,,,,,,,30
@@ -4810,7 +4810,7 @@ enterpriseid,patientsex,patient zip,prim prvdr,patient primary ins pkg name,pati
 113797,M,23400,PMG_RCB_DelPeral_H,BCBS-VA (PPO),Group Policy,*SELF PAY*,Personal Payment (Cash - No Insurance),,,SINGLE,,Never smoker,Occasional,No,,,,,,,,,25
 583422,F,23300,PMG_RCB_Amos_J,BCBS-VA (PPO),Group Policy,*SELF PAY*,Personal Payment (Cash - No Insurance),,,MARRIED,,Never smoker,Occasional,No,,,,,,,,,28
 167375,F,23400,PMG_RCB_Alexander_K,BCBS-VA - HealthKeepers (HMO),Group Policy,*SELF PAY*,Personal Payment (Cash - No Insurance),"Associate degree: occupational, technical, or vocational program",Not difficult at all,MARRIED,Single,Former smoker,,No,9 years,Yes: walks without restrictions,No,No,No,Only a little,Yes,,28
-150936,F,23300,PMG_RCB_zYauilla_M,Cigna,Commercial,*SELF PAY*,Personal Payment (Cash - No Insurance),High school graduate,,MARRIED,Married,Never smoker,,No,,,,,,,,,36
+150936,F,23300,PMG_RCB_zYauilla_M,Cigna,Commercial,*SELF PAY*,Personal Payment (Cash - No Insurance),High school graduate,,MARRIED,Married,Never smoker,,No,,,,,,,,,37
 238446,F,23400,PMG_RCB_zYauilla_M,Tricare East - Humana Military Tricare (TRICARE),Other,*SELF PAY*,Personal Payment (Cash - No Insurance),,,MARRIED,,,,,,,,,,,,,3
 365310,M,23400,PMG_RCB_Howell_J,Sentara Health Plans,Commercial,*SELF PAY*,Personal Payment (Cash - No Insurance),"Bachelor's degree (e.g., BA, AB, BS)",,SINGLE,Single,Former smoker,,Yes,,,,,,,,,35
 523253,M,23500,PMG_RCB_Howell_J,BCBS-CO - FEP,Group Policy,*SELF PAY*,Personal Payment (Cash - No Insurance),,,SINGLE,,Never smoker,Occasional,No,,,,,,,,,29
@@ -4974,7 +4974,7 @@ enterpriseid,patientsex,patient zip,prim prvdr,patient primary ins pkg name,pati
 385962,F,23400,PMG_RCB_Howell_J,BCBS-VA - HealthKeepers (POS),Group Policy,*SELF PAY*,Personal Payment (Cash - No Insurance),,,MARRIED,,Former smoker,Occasional,,,,,,,,,,43
 564140,F,23400,PMG_RCB_DelPeral_H,Sentara Health Plans,Commercial,*SELF PAY*,Personal Payment (Cash - No Insurance),"Some college, no degree",,MARRIED,Married,Never smoker,,No,,,,,,,Yes,No,38
 667487,M,23400,PMG_RCB_Amos_J,Sentara Health Plans,Commercial,*SELF PAY*,Personal Payment (Cash - No Insurance),,,MARRIED,Married,Former smoker,,,,,,,,,,,39
-281345,F,23400,PMG_RCB_zYauilla_M,BCBS-VA - Healthkeepers Plus (Medicaid Replacement - HMO),Group Policy,*SELF PAY*,Personal Payment (Cash - No Insurance),,,MARRIED,,Current every day smoker,Heavy,No,,,,,,,,,48
+281345,F,23400,PMG_RCB_zYauilla_M,BCBS-VA - Healthkeepers Plus (Medicaid Replacement - HMO),Group Policy,*SELF PAY*,Personal Payment (Cash - No Insurance),,,MARRIED,,Current every day smoker,Heavy,No,,,,,,,,,49
 115902,M,23400,PMG_RCB_Koplin_S,BCBS-VA - FEP (PPO),Group Policy,*SELF PAY*,Personal Payment (Cash - No Insurance),"Some college, no degree",,MARRIED,Married,Never smoker,,No,,,,,,,Yes,,40
 348843,M,23400,PMG_RCB_Amos_J,BCBS-PA Independence Blue Cross (PPO),Group Policy,*SELF PAY*,Personal Payment (Cash - No Insurance),,,MARRIED,,Never smoker,Occasional,Yes,,,,,,,,,45
 664733,F,23400,PMG_RCB_Horn_N,Tricare East - Humana Military Tricare (TRICARE),Other,*SELF PAY*,Personal Payment (Cash - No Insurance),,,MARRIED,,Never smoker,Occasional,No,,,,,,,,,39
@@ -5317,7 +5317,7 @@ enterpriseid,patientsex,patient zip,prim prvdr,patient primary ins pkg name,pati
 216628,M,23400,PMG_RCB_Amos_J,Sentara Health Plans,Commercial,*SELF PAY*,Personal Payment (Cash - No Insurance),,,DIVORCED,,Former smoker,,Yes,,,,,,,,,37
 812108,M,23500,PMG_RCB_Alexander_K,BCBS-VA (PPO),Group Policy,*SELF PAY*,Personal Payment (Cash - No Insurance),,,SINGLE,,Never smoker,,,,,,,,,,,37
 193665,F,23400,PMG_RCB_Howell_J,BCBS-CA Blue Cross of California (PPO),Group Policy,*SELF PAY*,Personal Payment (Cash - No Insurance),,,UNKNOWN,,Never smoker,,No,,,,,,,,,38
-551666,M,23400,PMG_RCB_Blackwood_Ro,Sentara Health Plans,Commercial,*SELF PAY*,Personal Payment (Cash - No Insurance),,,MARRIED,,Never smoker,,No,,,,,,,,,34
+551666,M,23400,PMG_RCB_Blackwood_Ro,Sentara Health Plans,Commercial,*SELF PAY*,Personal Payment (Cash - No Insurance),,,MARRIED,,Never smoker,,No,,,,,,,,,35
 114048,F,27900,PMG_RCB_Amos_J,*SELF PAY*,Personal Payment (Cash - No Insurance),*SELF PAY*,Personal Payment (Cash - No Insurance),,,,,,,,,,,,,,,,37
 750774,M,23700,PMG_RCB_DelPeral_H,Sentara Health Plans,Commercial,*SELF PAY*,Personal Payment (Cash - No Insurance),"Some college, no degree",,SINGLE,Single,Former smoker,Occasional,Yes,,,,,,,Yes,No,28
 733319,M,23300,PMG_RCB_Bateson_J,Tricare East - Humana Military Tricare (TRICARE),Other,*SELF PAY*,Personal Payment (Cash - No Insurance),,,SINGLE,,,,,,,,,,,,,3
@@ -5364,8 +5364,8 @@ enterpriseid,patientsex,patient zip,prim prvdr,patient primary ins pkg name,pati
 259958,M,23300,PMG_RCB_DelPeral_H,BCBS-VA - Healthkeepers Plus (Medicaid Replacement - HMO),Group Policy,*SELF PAY*,Personal Payment (Cash - No Insurance),,,SINGLE,,Never smoker,Occasional,Yes,,,,,,,,,28
 754897,F,23400,PMG_RCB_Amos_J,Tricare East - Humana Military Tricare (TRICARE),Other,*SELF PAY*,Personal Payment (Cash - No Insurance),7th grade,,SINGLE,,Never smoker,,No,,Yes: walks without restrictions,No,No,Yes,,,,15
 471855,M,23300,PMG_RCB_Amos_J,United Healthcare,Commercial,*SELF PAY*,Personal Payment (Cash - No Insurance),,,SINGLE,,Never smoker,,No,,,,,,,,,19
-442820,F,23500,PMG_RCB_DelPeral_H,BCBS-VA (PPO),Group Policy,*SELF PAY*,Personal Payment (Cash - No Insurance),6th grade,,SINGLE,,,,,,,,,,,,,12
-808060,F,23500,PMG_RCB_DelPeral_H,BCBS-VA,Group Policy,*SELF PAY*,Personal Payment (Cash - No Insurance),7th grade,,SINGLE,,Never smoker,,,,,,,,,,,12
+442820,F,23500,PMG_RCB_DelPeral_H,BCBS-VA (PPO),Group Policy,*SELF PAY*,Personal Payment (Cash - No Insurance),6th grade,,SINGLE,,,,,,,,,,,,,13
+808060,F,23500,PMG_RCB_DelPeral_H,BCBS-VA,Group Policy,*SELF PAY*,Personal Payment (Cash - No Insurance),7th grade,,SINGLE,,Never smoker,,,,,,,,,,,13
 741033,F,23400,PMG_RCB_Amos_J,*SELF PAY*,Personal Payment (Cash - No Insurance),*SELF PAY*,Personal Payment (Cash - No Insurance),,,UNKNOWN,,Never smoker,Occasional,No,,,,,,,,,43
 194011,M,23400,PMG_RCB_Horn_N,United Healthcare,Commercial,*SELF PAY*,Personal Payment (Cash - No Insurance),,,,,,,,,,,,,,,,13
 523427,F,23400,PMG_RCB_zYauilla_M,Tricare East - Humana Military Tricare (TRICARE),Other,*SELF PAY*,Personal Payment (Cash - No Insurance),,,MARRIED,,Former smoker,,No,,,,,,,,,34
@@ -5396,7 +5396,7 @@ enterpriseid,patientsex,patient zip,prim prvdr,patient primary ins pkg name,pati
 174612,F,23300,PMG_RCB_Alexander_K,Cigna,Commercial,*SELF PAY*,Personal Payment (Cash - No Insurance),,,UNKNOWN,,Never smoker,,No,,,,,,,,,34
 679340,F,23400,PMG_RCB_Amos_J,Sentara Health Plans,Commercial,*SELF PAY*,Personal Payment (Cash - No Insurance),,,SINGLE,,Never smoker,Occasional,Yes,,,,,,,,,27
 391667,F,23500,PMG_RCB_Amos_J,Cigna,Commercial,*SELF PAY*,Personal Payment (Cash - No Insurance),,,MARRIED,Married,Never smoker,,No,4 months,Yes: walks without restrictions,No,No,No,Not at all,No,,38
-924680,M,23500,PMG_RCB_Bateson_J,Cigna,Commercial,*SELF PAY*,Personal Payment (Cash - No Insurance),6th grade,,UNKNOWN,,,,,,,,,,,,,11
+924680,M,23500,PMG_RCB_Bateson_J,Cigna,Commercial,*SELF PAY*,Personal Payment (Cash - No Insurance),6th grade,,UNKNOWN,,,,,,,,,,,,,12
 224540,M,23500,PMG_RCB_Amos_J,Cigna,Commercial,*SELF PAY*,Personal Payment (Cash - No Insurance),3rd grade,,SINGLE,,,,,,,,,,,,,9
 908445,F,23400,PMG_RCB_Amos_J,Sentara Health Plans (POS),Commercial,*SELF PAY*,Personal Payment (Cash - No Insurance),,,SINGLE,,Never smoker,,No,,,,,,,,,24
 535623,M,23400,PMG_RCB_zYauilla_M,*SELF PAY*,Personal Payment (Cash - No Insurance),*SELF PAY*,Personal Payment (Cash - No Insurance),,,MARRIED,,Never smoker,,No,,,,,,,,,29
@@ -5467,7 +5467,7 @@ enterpriseid,patientsex,patient zip,prim prvdr,patient primary ins pkg name,pati
 780781,M,23400,PMG_RCB_Amos_J,Tricare East - Humana Military Tricare (TRICARE),Other,*SELF PAY*,Personal Payment (Cash - No Insurance),,,UNKNOWN,,Never smoker,,No,,,,,,,,,29
 993805,F,23400,PMG_RCB_zYauilla_M,Tricare East - Humana Military Tricare (TRICARE),Other,*SELF PAY*,Personal Payment (Cash - No Insurance),,,MARRIED,,Never smoker,Occasional,No,,,,,,,,,33
 237599,M,23400,PMG_RCB_Alexander_K,Tricare East - Humana Military Tricare (TRICARE),Other,*SELF PAY*,Personal Payment (Cash - No Insurance),,,MARRIED,Married,Never smoker,Occasional,No,,,,,,Only a little,,,28
-744997,F,23400,PMG_RCB_Amos_J,Cigna (PPO),Commercial,*SELF PAY*,Personal Payment (Cash - No Insurance),,,MARRIED,,Never smoker,,No,,,,,,,,,37
+744997,F,23400,PMG_RCB_Amos_J,Cigna (PPO),Commercial,*SELF PAY*,Personal Payment (Cash - No Insurance),,,MARRIED,,Never smoker,,No,,,,,,,,,38
 782065,M,23400,PMG_RCB_zYauilla_M,GWH-Cigna - Allied - Cigna (PPO),Commercial,*SELF PAY*,Personal Payment (Cash - No Insurance),,,SINGLE,,Never smoker,Occasional,No,,,,,,,,,26
 704124,F,23400,PMG_RCB_zYauilla_M,Cigna,Commercial,*SELF PAY*,Personal Payment (Cash - No Insurance),,,MARRIED,,Never smoker,Occasional,No,,,,,,,,,33
 549689,M,23400,PMG_RCB_Kucher_D,Sentara Health Plans,Commercial,*SELF PAY*,Personal Payment (Cash - No Insurance),,,MARRIED,,Never smoker,,No,,,,,,,,,42
@@ -7202,7 +7202,7 @@ enterpriseid,patientsex,patient zip,prim prvdr,patient primary ins pkg name,pati
 122149,M,27900,PMG_RCB_zCochran_D,BCBS-VA,Group Policy,*SELF PAY*,Personal Payment (Cash - No Insurance),,,,,,,,,,,,,,,,39
 534418,F,23400,PMG_RCB_Bateson_J,Tricare East - Humana Military Tricare (TRICARE),Other,*SELF PAY*,Personal Payment (Cash - No Insurance),"Bachelor's degree (e.g., BA, AB, BS)",,SEPARATED,Separated,Former smoker,Occasional,No,,,,,,,No,No,40
 239065,F,23300,PMG_RCB_zCochran_D,Cigna,Commercial,*SELF PAY*,Personal Payment (Cash - No Insurance),"Some college, no degree",,SINGLE,Single,Never smoker,Occasional,Yes,,,,,,,Yes,Yes,21
-893427,F,23400,PMG_RCB_Amos_J,Medicare-VA (Medicare),Medicare Part B,Tricare for Life (TRICARE - Medicare Supplement),Supplemental Policy,"Bachelor's degree (e.g., BA, AB, BS)",,MARRIED,Married,Never smoker,,No,40,Yes: walks without restrictions,Yes,No,No,Not at all,No,No,77
+893427,F,23400,PMG_RCB_Amos_J,Medicare-VA (Medicare),Medicare Part B,Tricare for Life (TRICARE - Medicare Supplement),Supplemental Policy,"Bachelor's degree (e.g., BA, AB, BS)",,MARRIED,Married,Never smoker,,No,40,Yes: walks without restrictions,Yes,No,No,Not at all,No,No,78
 225063,M,23400,PMG_RCB_zCochran_D,Medicare-VA (Medicare),Medicare Part B,Tricare for Life (TRICARE),Commercial,,,MARRIED,,Never smoker,,No,,,,,,,,,75
 746140,F,23400,PMG_RCB_zCochran_D,Medicare-VA (Medicare),Medicare Part B,Tricare for Life (TRICARE - Medicare Supplement),Supplemental Policy,"Bachelor's degree (e.g., BA, AB, BS)",,MARRIED,Married,Never smoker,Moderate,No,36 years,Yes: walks without restrictions,No,No,No,To some extent,Yes,No,67
 921161,M,23400,PMG_RCB_Koplin_S,Medicare-VA (Medicare),Medicare Part B,Tricare for Life (TRICARE - Medicare Supplement),Supplemental Policy,High school graduate,,MARRIED,Married,Never smoker,Occasional,No,37 year,Yes: walks without restrictions,Yes,No,Yes,Not at all,No,No,77
@@ -7389,7 +7389,7 @@ enterpriseid,patientsex,patient zip,prim prvdr,patient primary ins pkg name,pati
 858817,M,23400,PMG_RCB_DelPeral_H,Aetna (EPO),Commercial,*SELF PAY*,Personal Payment (Cash - No Insurance),"Bachelor's degree (e.g., BA, AB, BS)",,UNKNOWN,Single,Never smoker,Occasional,No,,,,,,,Yes,No,31
 594031,M,23300,PMG_RCB_Bateson_J,Sentara Health Plans,Commercial,*SELF PAY*,Personal Payment (Cash - No Insurance),,,DIVORCED,,Never smoker,Occasional,No,,,,,,,,,51
 153841,M,23400,PMG_RCB_Howell_J,Cigna,Commercial,*SELF PAY*,Personal Payment (Cash - No Insurance),"Associate degree: occupational, technical, or vocational program",,SINGLE,Single,Never smoker,Occasional,Yes,,,,,,,Yes,No,30
-129530,F,23400,PMG_RCB_Alexander_K,United Healthcare,Commercial,*SELF PAY*,Personal Payment (Cash - No Insurance),High school graduate,,SINGLE,Single,Former smoker,Occasional,No,,,,,,,Yes,No,31
+129530,F,23400,PMG_RCB_Alexander_K,United Healthcare,Commercial,*SELF PAY*,Personal Payment (Cash - No Insurance),High school graduate,,SINGLE,Single,Former smoker,Occasional,No,,,,,,,Yes,No,32
 118856,F,23400,PMG_RCB_DelPeral_H,BCBS-VA,Group Policy,*SELF PAY*,Personal Payment (Cash - No Insurance),,,UNKNOWN,Married,Never smoker,,No,,,,,,,No,,49
 574091,M,23400,PMG_RCB_Bateson_J,Tricare East - Humana Military Tricare (TRICARE),Other,*SELF PAY*,Personal Payment (Cash - No Insurance),,,UNKNOWN,,Never smoker,Occasional,No,,,,,,,,,19
 495560,F,23300,PMG_RCB_Alexander_K,BCBS-VA,Group Policy,*SELF PAY*,Personal Payment (Cash - No Insurance),,,SINGLE,,Never smoker,Occasional,,,,,,,,,,37
@@ -7708,7 +7708,7 @@ enterpriseid,patientsex,patient zip,prim prvdr,patient primary ins pkg name,pati
 268693,F,23400,PMG_RCB_Bateson_J,BCBS-VA (PPO),Group Policy,*SELF PAY*,Personal Payment (Cash - No Insurance),,,UNKNOWN,,Never smoker,Moderate,,,,,,,,,,28
 102897,M,23400,PMG_RCB_DelPeral_H,BCBS-VA (PPO),Group Policy,*SELF PAY*,Personal Payment (Cash - No Insurance),High school graduate,,MARRIED,Single,Never smoker,Moderate,No,,,,,,,Yes,No,40
 566555,M,27900,PMG_RCB_DelPeral_H,UMR - GEHA - United Healthcare - DOS 01/01/2025 and After,Commercial,*SELF PAY*,Personal Payment (Cash - No Insurance),"Some college, no degree",,MARRIED,Married,Never smoker,,No,,,,,,,Yes,No,44
-193956,M,23400,PMG_RCB_DelPeral_H,Sentara Health Plans,Commercial,Tricare for Life (TRICARE),Commercial,"Associate degree: occupational, technical, or vocational program",,UNKNOWN,Married,Never smoker,Occasional,No,,,,,,,Yes,No,59
+193956,M,23400,PMG_RCB_DelPeral_H,Sentara Health Plans,Commercial,Tricare for Life (TRICARE),Commercial,"Associate degree: occupational, technical, or vocational program",,UNKNOWN,Married,Never smoker,Occasional,No,,,,,,,Yes,No,60
 631755,F,23400,PMG_RCB_Alexander_K,BCBS-VA (PPO),Group Policy,*SELF PAY*,Personal Payment (Cash - No Insurance),,,UNKNOWN,,,,,,,,,,,,,9
 978562,F,23400,PMG_RCB_Bateson_J,Tricare East - Humana Military Tricare - Select (TRICARE - PPO),Other,*SELF PAY*,Personal Payment (Cash - No Insurance),,,UNKNOWN,,Never smoker,,No,,,,,,,,,36
 737630,M,23400,PMG_RCB_DelPeral_H,United Healthcare,Commercial,*SELF PAY*,Personal Payment (Cash - No Insurance),Associate degree: academic program,,MARRIED,Married,Never smoker,,No,,,,,,,Yes,No,45
@@ -8782,7 +8782,7 @@ enterpriseid,patientsex,patient zip,prim prvdr,patient primary ins pkg name,pati
 544581,F,23400,PMG_RCB_Kucher_D,Tricare East - Humana Military Tricare (TRICARE),Other,*SELF PAY*,Personal Payment (Cash - No Insurance),,,,,,,,,,,,,,,,18
 286514,M,23400,PMG_RCB_Kucher_D,Tricare East - Humana Military Tricare (TRICARE),Other,*SELF PAY*,Personal Payment (Cash - No Insurance),,,SINGLE,,,,,,,,,,,,,17
 970388,F,23400,PMG_RCB_Kucher_D,Medicare-VA (Medicare),Medicare Part B,BCBS-VA (Medicare Supplement),Group Policy,,,,,,,,,,,,,,,,67
-498697,F,23400,PMG_RCB_Kucher_D,Tricare East - Humana Military Tricare (TRICARE),Other,*SELF PAY*,Personal Payment (Cash - No Insurance),,,,,,,,,,,,,,,,39
+498697,F,23400,PMG_RCB_Kucher_D,Tricare East - Humana Military Tricare (TRICARE),Other,*SELF PAY*,Personal Payment (Cash - No Insurance),,,,,,,,,,,,,,,,40
 521563,M,23300,PMG_RCB_Bateson_J,Anthem BCBS-NY,Group Policy,*SELF PAY*,Personal Payment (Cash - No Insurance),,,SINGLE,,,,,,,,,,,,,0
 730786,F,23400,,*SELF PAY*,Personal Payment (Cash - No Insurance),*SELF PAY*,Personal Payment (Cash - No Insurance),,,,,,,,,,,,,,,,29
 151454,M,23500,PMG_RCB_Kucher_D,Humana - Honor (Medicare Replacement/Advantage - PPO),Medicare Part B,Medicare-VA (Medicare),Medicare Part B,,,,,,,,,,,,,,,,65
