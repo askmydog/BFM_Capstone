@@ -130,6 +130,7 @@ DATA_TARGETS = {
     "ked":               ("ked",               ("csv",)),
     "mammogram":         ("mammogram",         ("csv",)),
     "med list":          ("med list",          ("csv",)),
+    "encounter bp":      ("encounter bp",      ("csv",))
 }
 
 def _natural_key(s: str):
@@ -166,6 +167,7 @@ a1c_df          = pd.read_csv(files["a1c"], parse_dates=["labdate"])
 ked_df          = pd.read_csv(files["ked"], parse_dates=["labdate"])
 mammo_df        = pd.read_csv(files["mammogram"], parse_dates=["dt f lst mmmgrm"])
 med_list_df     = pd.read_csv(files["med list"])
+vitals_df       = pd.read_csv(files["encounter bp"])
 
 # --------------- Clean up Demographics dataframe Calculate ages (vectorized, correct), anonymize zip and remove inactive and desceased patients -------------------------
 today = pd.Timestamp.today().normalize()
@@ -210,6 +212,59 @@ demographics_df = demographics_df[
 del demographics_df["patientdob"]
 del demographics_df["status"]
 del demographics_df["ptnt dcsd ysn"]
+
+
+# ---------------------Reformat A1C-----------------------------------
+
+def format_a1c(val:str) -> float | None:
+    """
+    Takes string from data file, extracts A1C and returns A1C as float or None if no match found 
+    """
+    if isinstance(val, str): 
+        pat = r"\b\d{1,2}(?:\.\d{1,2})?\b"
+        match = re.match(pat,val)
+        if match and (float(match[0]) <20):
+            return float(match[0])
+        return None
+    else:
+        return None 
+
+
+a1c_df["labvalue"] = a1c_df["labvalue"].apply(format_a1c)
+
+# -------------------------- Format Vitals ---------------------------------------------
+
+def format_sys_bp(val:str) -> int | None:
+    """
+    Takes string from dataframe, extracts systolic bp, returns systolic BP as int
+    """
+    if isinstance(val, str):
+        sys_pat = r"\b(\d{2,3})(?=/)\b"
+        sys_match = re.search(sys_pat, val)
+        dia_pat = r"(?<=/)\d{2,3}\b"
+        dia_match = re.search(dia_pat, val)
+        if sys_match:
+            return int(sys_match[0])
+        return None
+    else:
+        return None
+    
+def format_dia_bp(val:str) -> int | None:
+    """
+    Takes string from dataframe, extracts diastolic bp, returns diastolic BP as int
+    """
+    if isinstance(val, str):
+        dia_pat = r"(?<=/)\d{2,3}\b"
+        dia_match = re.search(dia_pat, val)
+        if dia_match:
+            return int(dia_match[0])
+        return None
+    else:
+        return None
+    
+vitals_df["sys BP"] = vitals_df["Enc BP"].apply(format_sys_bp)
+vitals_df["dia BP"] = vitals_df["Enc BP"].apply(format_dia_bp)
+del vitals_df["Enc BP"]
 
 
 # ------------------------- Assign new random IDs (fast, reproducible) -------------------
@@ -257,6 +312,7 @@ a1c_df.to_csv(output_dir / "a1c.csv", index=False)
 ked_df.to_csv(output_dir / "ked.csv", index=False)
 mammo_df.to_csv(output_dir / "mammogram.csv", index=False)
 med_list_df.to_csv(output_dir / "med list.csv", index=False)
+vitals_df.to_csv(output_dir / "vitals.csv", index = False)
 
 # colog_df["enterpriseid"]        = colog_df["enterpriseid"].map(id_map)
 # surg_hx_df["enterpriseid"]      = surg_hx_df["enterpriseid"].map(id_map)
