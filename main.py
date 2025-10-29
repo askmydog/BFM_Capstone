@@ -153,21 +153,8 @@ pt_wo_a1c.head()
 
 #%% -----------------------A1C OVER 9------------------------------
 
-a1c_df = pd.read_csv(get_latest_data_file("a1c"), parse_dates=["labdate"], dtype={"labvalue":str})
+a1c_df = pd.read_csv(get_latest_data_file("a1c"), parse_dates=["labdate"])
 # a1c_df["labvalue"] = a1c_df["labvalue"].astype(str)
-
-def format_a1c(val:str) -> float | None:
-    if isinstance(val, str):
-        pat = r"\b\d{1,2}(?:\.\d{1,2})?\b"
-        match = re.match(pat,val)
-        if match and (float(match[0]) <20):
-            return float(match[0])
-        return None
-    else:
-        return None 
-
-
-a1c_df["labvalue"] = a1c_df["labvalue"].apply(format_a1c)
 
 
 # print(sorted(a1c_df["labvalue"].unique()))
