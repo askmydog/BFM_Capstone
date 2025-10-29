@@ -232,6 +232,8 @@ def format_a1c(val:str) -> float | None:
 
 a1c_df["labvalue"] = a1c_df["labvalue"].apply(format_a1c)
 
+a1c_df.dropna(inplace=True)
+
 # -------------------------- Format Vitals ---------------------------------------------
 
 def format_sys_bp(val:str) -> int | None:
@@ -267,21 +269,41 @@ vitals_df["dia BP"] = vitals_df["Enc BP"].apply(format_dia_bp)
 del vitals_df["Enc BP"]
 
 
-# ------------------------- Assign new random IDs (fast, reproducible) -------------------
-# 1) Unique enterprise IDs
-ent = demographics_df["enterpriseid"].astype("Int64")  # align dtype; change if yours is str
-uids = ent.dropna().unique()
 
-# 2) Draw unique 6-digit numbers
+# ------------------------- Assign new random IDs (fast, reproducible) -------------------
+
+# Compile list of all enterprise IDs
+frames = {
+    "demographics": demographics_df,
+    "enc_base": enc_base_df,
+    "colog": colog_df,
+    "surg_hx": surg_hx_df,
+    "a1c": a1c_df,
+    "ked": ked_df,
+    "mammo": mammo_df,
+    "med_list": med_list_df,
+}
+
+allids = pd.Index([], dtype="Int64")
+
+for name, df in frames.items():
+    if  "enterpriseid" not in df.columns:
+        raise ValueError(f"There is no column 'enterpriseid' in dataframe {name}")
+    ids = pd.Index(df["enterpriseid"].dropna().unique(), dtype="Int64")
+    allids = allids.union(ids)
+    # print(f"{allids_index[:5]=}")
+
+
+# Draw unique 6-digit numbers
 rng = np.random.default_rng(42)                         # set seed for reproducibility
 rand_pool = np.arange(100_000, 1_000_000, dtype=np.int64)
-rand_ids  = rng.choice(rand_pool, size=len(uids), replace=False)
+rand_ids  = rng.choice(rand_pool, size=len(allids), replace=False)
 
-# 3) Build mapping Series and (optionally) a two-column key DF to persist
-id_map   = pd.Series(rand_ids, index=uids, name="rand_id")
+# Build mapping Series and (optionally) a two-column key DF to persist
+id_map   = pd.Series(rand_ids, index=allids, name="rand_id")
 id_key   = id_map.rename_axis("enterpriseid").reset_index()
 
-# 4) Map onto dataframes (no apply)
+# Map onto dataframes (no apply)
 demographics_df["enterpriseid"] = demographics_df["enterpriseid"].map(id_map)
 enc_base_df["enterpriseid"]     = enc_base_df["enterpriseid"].map(id_map)
 colog_df["enterpriseid"]        = colog_df["enterpriseid"].map(id_map)
