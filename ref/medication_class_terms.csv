@@ -1,0 +1,1046 @@
+class,term
+Insulin,insulin
+Insulin,insulin aspart
+Insulin,NovoLog
+Insulin,Fiasp
+Insulin,insulin lispro
+Insulin,Humalog
+Insulin,Admelog
+Insulin,insulin glulisine
+Insulin,Apidra
+Insulin,regular insulin
+Insulin,Humulin R
+Insulin,Novolin R
+Insulin,NPH insulin
+Insulin,Humulin N
+Insulin,Novolin N
+Insulin,insulin detemir
+Insulin,Levemir
+Insulin,insulin glargine
+Insulin,Lantus
+Insulin,Toujeo
+Insulin,Basaglar
+Insulin,Semglee
+Insulin,insulin degludec
+Insulin,Tresiba
+Insulin,insulin isophane/regular
+Insulin,Humulin 70/30
+Insulin,Novolin 70/30
+Insulin,insulin lispro protamine/lispro
+Insulin,Humalog Mix 75/25
+Insulin,Humalog Mix 50/50
+Insulin,insulin aspart protamine/aspart
+Insulin,NovoLog Mix 70/30
+Insulin,insulin inhalation
+Insulin,Afrezza
+GLP1,ozempic
+GLP1,rebylsus
+GLP1,wegovy
+GLP1,semaglutide
+GLP1,mounjaro
+GLP1,zepbound
+GLP1,tirzepatide
+GLP1,trulicity
+GLP1,dulaglutide
+GLP1,victoza
+GLP1,saxenda
+GLP1,liraglutide
+GLP1,byetta
+GLP1,bydureon
+GLP1,exenatide
+GLP1,adlyxin
+GLP1,lixisenatide
+Metformin,janumet
+Metformin,glucophage
+Metformin,kombiglyze
+Metformin,jentadueto
+Metformin,glucovance
+Metformin,metformin
+SGLT2,canagliflozin
+SGLT2,invokana
+SGLT2,dapagliflozin
+SGLT2,farxiga
+SGLT2,empagliflozin
+SGLT2,jardiance
+SGLT2,ertugliflozin
+SGLT2,steglatro
+SGLT2,sotagliflozin
+SGLT2,zynquista
+DPP4,sitagliptin
+DPP4,januvia
+DPP4,linagliptin
+DPP4,tradjenta
+DPP4,saxagliptin
+DPP4,onglyza
+DPP4,alogliptin
+DPP4,nesina
+DPP4,vildagliptin
+DPP4,galvus
+DPP4,teneligliptin
+DPP4,tenelia
+TZD,pioglitazone
+TZD,actos
+TZD,rosiglitazone
+TZD,avandia
+TZD,troglitazone
+TZD,rezulin
+Sulfonylurea,glipizide
+Sulfonylurea,glucotrol
+Sulfonylurea,glyburide
+Sulfonylurea,diabeta
+Sulfonylurea,micronase
+Sulfonylurea,glimepiride
+Sulfonylurea,amaryl
+Sulfonylurea,tolbutamide
+Sulfonylurea,orinase
+Sulfonylurea,tolazamide
+Sulfonylurea,tolinase
+Sulfonylurea,chlorpropamide
+Sulfonylurea,diabinese
+Meglitinide,repaglinide
+Meglitinide,prandin
+Meglitinide,nateglinide
+Meglitinide,starlix
+Alpha-Glucosidase Inhibitor,acarbose
+Alpha-Glucosidase Inhibitor,precose
+Alpha-Glucosidase Inhibitor,miglitol
+Alpha-Glucosidase Inhibitor,glyset
+Bile Acid Sequestrant,colesevelam
+Bile Acid Sequestrant,welchol
+Bile Acid Sequestrant,cholestyramine
+Bile Acid Sequestrant,questran
+Bile Acid Sequestrant,colestipol
+Bile Acid Sequestrant,colestid
+Fibrate,fenofibrate
+Fibrate,tricor
+Fibrate,lipofen
+Fibrate,trilipix
+Fibrate,gemfibrozil
+Fibrate,lopid
+Fibrate,bezafibrate
+Fibrate,bezalip
+Fibrate,ciprofibrate
+Fibrate,lipanor
+Niacin,niacin
+Niacin,niaspan
+Niacin,slo-niacin
+Niacin,vitamin b3
+Niacin,nicotinic acid
+Niacin,nicotinamide
+Anticoagulant,warfarin
+Anticoagulant,coumadin
+Anticoagulant,jantoven
+Anticoagulant,rivaroxaban
+Anticoagulant,xarelto
+Anticoagulant,apixaban
+Anticoagulant,eliquis
+Anticoagulant,dabigatran
+Anticoagulant,pradaxa
+Anticoagulant,edoxaban
+Anticoagulant,savaysa
+Anticoagulant,betrixaban
+Anticoagulant,bevyxxa
+Antiplatelet,aspirin
+Antiplatelet,acetylsalicylic acid
+Antiplatelet,clopidogrel
+Antiplatelet,plavix
+Antiplatelet,ticagrelor
+Antiplatelet,brilinta
+Antiplatelet,prasugrel
+Antiplatelet,effient
+Antiplatelet,dipyridamole
+Antiplatelet,persantine
+Antiplatelet,cilostazol
+Antiplatelet,pletal
+1st-Gen Antihistamine,diphenhydramine
+1st-Gen Antihistamine,benadryl
+1st-Gen Antihistamine,chlorpheniramine
+1st-Gen Antihistamine,chlor-trimeton
+1st-Gen Antihistamine,brompheniramine
+1st-Gen Antihistamine,dimetapp
+1st-Gen Antihistamine,doxylamine
+1st-Gen Antihistamine,unisom
+1st-Gen Antihistamine,promethazine
+1st-Gen Antihistamine,phenergan
+1st-Gen Antihistamine,hydroxyzine
+1st-Gen Antihistamine,vistaril
+1st-Gen Antihistamine,atarax
+1st-Gen Antihistamine,cyproheptadine
+1st-Gen Antihistamine,periactin
+1st-Gen Antihistamine,meclizine
+1st-Gen Antihistamine,antivert
+1st-Gen Antihistamine,dimenhydrinate
+1st-Gen Antihistamine,dramamine
+1st-Gen Antihistamine,carbinoxamine
+1st-Gen Antihistamine,arbinoxa
+1st-Gen Antihistamine,rondec
+1st-Gen Antihistamine,dexchlorpheniramine
+1st-Gen Antihistamine,polaramine
+1st-Gen Antihistamine,dextromethorphan
+2nd-Gen Antihistamine,loratadine
+2nd-Gen Antihistamine,claritin
+2nd-Gen Antihistamine,cetirizine
+2nd-Gen Antihistamine,zyrtec
+2nd-Gen Antihistamine,fexofenadine
+2nd-Gen Antihistamine,allegra
+2nd-Gen Antihistamine,desloratadine
+2nd-Gen Antihistamine,clarinex
+2nd-Gen Antihistamine,levocetirizine
+2nd-Gen Antihistamine,xyzal
+2nd-Gen Antihistamine,azelastine
+2nd-Gen Antihistamine,astelin
+2nd-Gen Antihistamine,astepro
+2nd-Gen Antihistamine,olopatadine
+2nd-Gen Antihistamine,pataday
+2nd-Gen Antihistamine,patanase
+2nd-Gen Antihistamine,patanol
+2nd-Gen Antihistamine,ketotifen
+2nd-Gen Antihistamine,zaditor
+2nd-Gen Antihistamine,alaway
+2nd-Gen Antihistamine,claritin eye
+2nd-Gen Antihistamine,bepotastine
+2nd-Gen Antihistamine,bepreve
+2nd-Gen Antihistamine,bepotastine ophthalmic
+2nd-Gen Antihistamine,epinastine
+2nd-Gen Antihistamine,elestat
+2nd-Gen Antihistamine,epinastine ophthalmic
+Antibiotic,amoxicillin
+Antibiotic,amoxil
+Antibiotic,azithromycin
+Antibiotic,zithromax
+Antibiotic,ciprofloxacin
+Antibiotic,cipro
+Antibiotic,levofloxacin
+Antibiotic,levaquin
+Antibiotic,doxycycline
+Antibiotic,vibramycin
+Antibiotic,clindamycin
+Antibiotic,cleocin
+Antibiotic,metronidazole
+Antibiotic,flagyl
+Antibiotic,sulfamethoxazole/trimethoprim
+Antibiotic,bactrim
+Antibiotic,septra
+Statin,atorvastatin
+Statin,Lipitor
+Statin,fluvastatin
+Statin,Lescol
+Statin,fluvastatin extended-release
+Statin,Lescol XL
+Statin,lovastatin
+Statin,Mevacor
+Statin,Altoprev
+Statin,pitavastatin
+Statin,Livalo
+Statin,Zypitamag
+Statin,pravastatin
+Statin,Pravachol
+Statin,rosuvastatin
+Statin,Crestor
+Statin,Ezallor Sprinkle
+Statin,simvastatin
+Statin,Zocor
+SSRI,fluoxetine
+SSRI,Prozac
+SSRI,Sarafem
+SSRI,sertraline
+SSRI,Zoloft
+SSRI,citalopram
+SSRI,Celexa
+SSRI,escitalopram
+SSRI,Lexapro
+SSRI,paroxetine
+SSRI,Paxil
+SSRI,Paxil CR
+SSRI,Brisdelle
+SSRI,fluvoxamine
+SSRI,Luvox
+SSRI,Luvox CR
+SSRI,vilazodone
+SSRI,Viibryd
+SSRI,vortioxetine
+SSRI,Trintellix
+SNRI,venlafaxine
+SNRI,Effexor
+SNRI,venlafaxine extended-release
+SNRI,Effexor XR
+SNRI,desvenlafaxine
+SNRI,Pristiq
+SNRI,Khedezla
+SNRI,duloxetine
+SNRI,Cymbalta
+SNRI,levomilnacipran
+SNRI,Fetzima
+SNRI,milnacipran
+SNRI,Savella
+TCA,amitriptyline
+TCA,Elavil
+TCA,nortriptyline
+TCA,Pamelor
+TCA,imipramine
+TCA,Tofranil
+TCA,desipramine
+TCA,Norpramin
+TCA,doxepin
+TCA,Silenor
+TCA,clomipramine
+TCA,Anafranil
+TCA,trimipramine
+TCA,Surmontil
+TCA,protriptyline
+TCA,Vivactil
+PDE-5-inhibitor,sildenafil
+PDE-5-inhibitor,Viagra
+PDE-5-inhibitor,Revatio
+PDE-5-inhibitor,tadalafil
+PDE-5-inhibitor,Cialis
+PDE-5-inhibitor,Adcirca
+PDE-5-inhibitor,vardenafil
+PDE-5-inhibitor,Levitra
+PDE-5-inhibitor,Staxyn
+PDE-5-inhibitor,avanafil
+PDE-5-inhibitor,Stendra
+Anticonvulsant,carbamazepine
+Anticonvulsant,Tegretol
+Anticonvulsant,Carbatrol
+Anticonvulsant,Equetro
+Anticonvulsant,oxcarbazepine
+Anticonvulsant,Trileptal
+Anticonvulsant,Oxtellar XR
+Anticonvulsant,lamotrigine
+Anticonvulsant,Lamictal
+Anticonvulsant,Lamictal XR
+Anticonvulsant,Lamictal ODT
+Anticonvulsant,levetiracetam
+Anticonvulsant,Keppra
+Anticonvulsant,Keppra XR
+Anticonvulsant,topiramate
+Anticonvulsant,Topamax
+Anticonvulsant,Trokendi XR
+Anticonvulsant,Qudexy XR
+Anticonvulsant,valproic acid
+Anticonvulsant,Depakene
+Anticonvulsant,divalproex sodium
+Anticonvulsant,Depakote
+Anticonvulsant,Depakote ER
+Anticonvulsant,gabapentin
+Anticonvulsant,Neurontin
+Anticonvulsant,pregabalin
+Anticonvulsant,Lyrica
+Anticonvulsant,phenobarbital
+Anticonvulsant,Luminal
+Anticonvulsant,phenytoin
+Anticonvulsant,Dilantin
+Anticonvulsant,zonisamide
+Anticonvulsant,Zonegran
+Leukotriene-Receptor-Antagonist,montelukast
+Leukotriene-Receptor-Antagonist,Singulair
+Leukotriene-Receptor-Antagonist,zafirlukast
+Leukotriene-Receptor-Antagonist,Accolate
+Leukotriene-Receptor-Antagonist,zileuton
+Leukotriene-Receptor-Antagonist,Zyflo
+Leukotriene-Receptor-Antagonist,Zyflo CR
+Inhaled-Corticosteroid,fluticasone
+Inhaled-Corticosteroid,Flovent
+Inhaled-Corticosteroid,Arnuity Ellipta
+Inhaled-Corticosteroid,budesonide
+Inhaled-Corticosteroid,Pulmicort
+Inhaled-Corticosteroid,beclomethasone
+Inhaled-Corticosteroid,Qvar
+Inhaled-Corticosteroid,mometasone
+Inhaled-Corticosteroid,Asmanex
+Inhaled-Corticosteroid,ciclesonide
+Inhaled-Corticosteroid,Alvesco
+Inhaled-Corticosteroid,flunisolide
+Inhaled-Corticosteroid,Aerobid
+Long-Acting-Beta-Agonist,salmeterol
+Long-Acting-Beta-Agonist,Serevent
+Long-Acting-Beta-Agonist,formoterol
+Long-Acting-Beta-Agonist,Foradil
+Long-Acting-Beta-Agonist,Perforomist
+Long-Acting-Beta-Agonist,arformoterol
+Long-Acting-Beta-Agonist,Brovana
+Long-Acting-Beta-Agonist,indacaterol
+Long-Acting-Beta-Agonist,Arcapta Neohaler
+Long-Acting-Beta-Agonist,vilanterol
+Long-Acting-Beta-Agonist,Breztri Aerosphere
+Long-Acting-Beta-Agonist,Breztri Inhaler
+Short-Acting-Beta-Agonist,albuterol
+Short-Acting-Beta-Agonist,Ventolin
+Short-Acting-Beta-Agonist,Proventil
+Short-Acting-Beta-Agonist,ProAir
+Short-Acting-Beta-Agonist,levalbuterol
+Short-Acting-Beta-Agonist,Xopenex
+Short-Acting-Beta-Agonist,Xopenex HFA
+Short-Acting-Beta-Agonist,pirbuterol
+Short-Acting-Beta-Agonist,Maxair
+combination-inhaler,fluticasone/salmeterol
+combination-inhaler,Advair Diskus
+combination-inhaler,Advair HFA
+combination-inhaler,budesonide/formoterol
+combination-inhaler,Symbicort
+combination-inhaler,mometasone/formoterol
+combination-inhaler,Dulera
+combination-inhaler,fluticasone/vilanterol
+combination-inhaler,Breztri Aerosphere
+combination-inhaler,Breztri
+combination-inhaler,beclomethasone/formoterol
+combination-inhaler,Zenhale
+combination-inhaler,ciclesonide/formoterol
+combination-inhaler,fluticasone/umeclidinium/vilanterol
+combination-inhaler,Trelegy
+combination-inhaler,fluticasone/umeclidinium
+combination-inhaler,Anoro
+combination-inhaler,ipratropium/albuterol
+combination-inhaler,Combivent
+combination-inhaler,DuoNeb
+combination-inhaler,tiotropium/olodaterol
+combination-inhaler,Stiolto
+combination-inhaler,umeclidinium/vilanterol
+combination-inhaler,indacaterol/glycopyrrolate
+combination-inhaler,Utibron Neohaler
+Muscarinic-Antagonist,ipratropium
+Muscarinic-Antagonist,Atrovent
+Muscarinic-Antagonist,tiotropium
+Muscarinic-Antagonist,Spiriva
+Muscarinic-Antagonist,aclidinium
+Muscarinic-Antagonist,Tudorza
+Muscarinic-Antagonist,umeclidinium
+Muscarinic-Antagonist,Incruse Ellipta
+Muscarinic-Antagonist,glycopyrrolate
+Muscarinic-Antagonist,Seebri Neohaler
+Muscarinic-Antagonist,Lonhala Magnair
+Muscarinic-Antagonist,revefenacin
+Muscarinic-Antagonist,Yupelri
+Muscarinic-Antagonist,scopolamine
+Muscarinic-Antagonist,Transderm Scop
+Muscarinic-Antagonist,benztropine
+Muscarinic-Antagonist,Cogentin
+Muscarinic-Antagonist,trihexyphenidyl
+Muscarinic-Antagonist,Artane
+Overactive-Bladder,oxybutynin
+Overactive-Bladder,Ditropan
+Overactive-Bladder,Oxytrol
+Overactive-Bladder,tolterodine
+Overactive-Bladder,Detrol
+Overactive-Bladder,Detrol LA
+Overactive-Bladder,solifenacin
+Overactive-Bladder,Vesicare
+Overactive-Bladder,darifenacin
+Overactive-Bladder,Enablex
+Overactive-Bladder,fesoterodine
+Overactive-Bladder,Toviaz
+Overactive-Bladder,mirabegron
+Overactive-Bladder,Myrbetriq
+Overactive-Bladder,trospium
+Overactive-Bladder,Sanctura
+Overactive-Bladder,Sanctura XR
+Antispasmotic,dicyclomine
+Antispasmotic,Bentyl
+Antispasmotic,hyoscyamine
+Antispasmotic,Levsin
+Antispasmotic,Anaspaz
+Antispasmotic,glycopyrrolate
+Antispasmotic,Robinul
+Antispasmotic,methscopolamine
+Antispasmotic,Pamine
+Antispasmotic,propantheline
+Antispasmotic,Pro-Banthine
+Omega-3-Fatty-Acid,omega-3-acid ethyl esters
+Omega-3-Fatty-Acid,Lovaza
+Omega-3-Fatty-Acid,icosapent ethyl
+Omega-3-Fatty-Acid,Vascepa
+Omega-3-Fatty-Acid,omega-3 carboxylic acids
+Omega-3-Fatty-Acid,Epanova
+Omega-3-Fatty-Acid,omega-3-acid ethyl esters A
+Omega-3-Fatty-Acid,Omtryg
+sedative-hypnotic,zolpidem
+sedative-hypnotic,Ambien
+sedative-hypnotic,Ambien CR
+sedative-hypnotic,eszopiclone
+sedative-hypnotic,Lunesta
+sedative-hypnotic,zaleplon
+sedative-hypnotic,Sonata
+Dual-orexin-receptor-antagonist,suvorexant
+Dual-orexin-receptor-antagonist,Belsomra
+Dual-orexin-receptor-antagonist,lemborexant
+Dual-orexin-receptor-antagonist,Dayvigo
+Dual-orexin-receptor-antagonist,daridorexant
+Dual-orexin-receptor-antagonist,Quviviq
+5HT2A-antagonist,tasimelteon
+5HT2A-antagonist,Hetlioz
+5HT2A-antagonist,ramelteon
+5HT2A-antagonist,Rozerem
+5HT2A-antagonist,melatonin
+5HT2A-antagonist,Circadin
+5HT3-antagonist,ondansetron
+5HT3-antagonist,Zofran
+5HT3-antagonist,Zofran ODT
+5HT3-antagonist,granisetron
+5HT3-antagonist,Kytril
+5HT3-antagonist,Sancuso
+5HT3-antagonist,palonosetron
+5HT3-antagonist,Aloxi
+5HT3-antagonist,dolasetron
+5HT3-antagonist,Anzemet
+5ht1-antagonist,ergotamine
+5ht1-antagonist,Ergomar
+5ht1-antagonist,dihydroergotamine
+5ht1-antagonist,Migranal
+5ht1-antagonist,DHE 45
+5ht1-antagonist,methysergide
+5ht1-antagonist,Sansert
+Muscle-Relaxant,cyclobenzaprine
+Muscle-Relaxant,Flexeril
+Muscle-Relaxant,Amrix
+Muscle-Relaxant,carisoprodol
+Muscle-Relaxant,Soma
+Muscle-Relaxant,methocarbamol
+Muscle-Relaxant,Robaxin
+Muscle-Relaxant,metaxalone
+Muscle-Relaxant,Skelaxin
+Muscle-Relaxant,orphenadrine
+Muscle-Relaxant,Norflex
+Muscle-Relaxant,tizanidine
+Muscle-Relaxant,Zanaflex
+Muscle-Relaxant,baclofen
+Muscle-Relaxant,Lioresal
+bile-acid-binding-resin,cholestyramine
+bile-acid-binding-resin,Questran
+bile-acid-binding-resin,Prevalite
+bile-acid-binding-resin,colestipol
+bile-acid-binding-resin,Colestid
+bile-acid-binding-resin,colesevelam
+bile-acid-binding-resin,Welchol
+Benzodiazepine,alprazolam
+Benzodiazepine,Xanax
+Benzodiazepine,alprazolam extended-release
+Benzodiazepine,Xanax XR
+Benzodiazepine,clonazepam
+Benzodiazepine,Klonopin
+Benzodiazepine,diazepam
+Benzodiazepine,Valium
+Benzodiazepine,lorazepam
+Benzodiazepine,Ativan
+Benzodiazepine,chlordiazepoxide
+Benzodiazepine,Librium
+Benzodiazepine,oxazepam
+Benzodiazepine,Serax
+Benzodiazepine,temazepam
+Benzodiazepine,Restoril
+Benzodiazepine,triazolam
+Benzodiazepine,Halcion
+Benzodiazepine,midazolam
+Benzodiazepine,Versed
+Benzodiazepine,flurazepam
+Benzodiazepine,Dalmane
+Benzodiazepine,estazolam
+Benzodiazepine,Prosom
+Benzodiazepine,clobazam
+Benzodiazepine,Onfi
+Benzodiazepine,clorazepate
+Benzodiazepine,Tranxene
+Opioid,morphine
+Opioid,MS Contin
+Opioid,Roxanol
+Opioid,Kadian
+Opioid,codeine
+Opioid,Tylenol with Codeine
+Opioid,hydrocodone
+Opioid,Vicodin
+Opioid,Norco
+Opioid,Lortab
+Opioid,oxycodone
+Opioid,OxyContin
+Opioid,Roxicodone
+Opioid,Percocet
+Opioid,Percodan
+Opioid,fentanyl
+Opioid,Duragesic
+Opioid,Actiq
+Opioid,Sublimaze
+Opioid,hydromorphone
+Opioid,Dilaudid
+Opioid,Exalgo
+Opioid,methadone
+Opioid,Dolophine
+Opioid,meperidine
+Opioid,Demerol
+Opioid,buprenorphine
+Opioid,Subutex
+Opioid,Belbuca
+Opioid,buprenorphine/naloxone
+Opioid,Suboxone
+Opioid,tramadol
+Opioid,Ultram
+Opioid,Ultracet
+Opioid,tapentadol
+Opioid,Nucynta
+Thiazide,hydrochlorothiazide
+Thiazide,Microzide
+Thiazide,chlorthalidone
+Thiazide,Hygroton
+Thiazide,chlorothiazide
+Thiazide,Diuril
+Thiazide,indapamide
+Thiazide,Lozol
+Thiazide,metolazone
+Thiazide,Zaroxolyn
+Thiazide,bendroflumethiazide
+Thiazide,Naturetin
+Thiazide,methyclothiazide
+Thiazide,Enduron
+Non-DHPCCB,verapamil
+Non-DHPCCB,Calan
+Non-DHPCCB,Calan SR
+Non-DHPCCB,Isoptin
+Non-DHPCCB,Isoptin SR
+Non-DHPCCB,Verelan
+Non-DHPCCB,Verelan PM
+Non-DHPCCB,diltiazem
+Non-DHPCCB,Cardizem
+Non-DHPCCB,Cardizem CD
+Non-DHPCCB,Cardizem LA
+Non-DHPCCB,Cartia XT
+Non-DHPCCB,Dilacor XR
+Non-DHPCCB,Tiazac
+Non-DHPCCB,Taztia XT
+DHP-CCB,amlodipine
+DHP-CCB,Norvasc
+DHP-CCB,felodipine
+DHP-CCB,Plendil
+DHP-CCB,isradipine
+DHP-CCB,Dynacirc
+DHP-CCB,nicardipine
+DHP-CCB,Cardene
+DHP-CCB,Cardene SR
+DHP-CCB,nifedipine
+DHP-CCB,Adalat CC
+DHP-CCB,Procardia
+DHP-CCB,Procardia XL
+DHP-CCB,nisoldipine
+DHP-CCB,Sular
+DHP-CCB,clevidipine
+DHP-CCB,Cleviprex
+ACE,benazepril
+ACE,Lotensin
+ACE,captopril
+ACE,Capoten
+ACE,enalapril
+ACE,Vasotec
+ACE,Epaned
+ACE,fosinopril
+ACE,Monopril
+ACE,lisinopril
+ACE,Prinivil
+ACE,Zestril
+ACE,Qbrelis
+ACE,moexipril
+ACE,Univasc
+ACE,perindopril
+ACE,Aceon
+ACE,quinapril
+ACE,Accupril
+ACE,ramipril
+ACE,Altace
+ACE,trandolapril
+ACE,Mavik
+ARB,azilsartan
+ARB,Edarbi
+ARB,candesartan
+ARB,Atacand
+ARB,eprosartan
+ARB,Teveten
+ARB,irbesartan
+ARB,Avapro
+ARB,losartan
+ARB,Cozaar
+ARB,olmesartan
+ARB,Benicar
+ARB,telmisartan
+ARB,Micardis
+ARB,valsartan
+ARB,Diovan
+BetaBlocker,atenolol
+BetaBlocker,Tenormin
+BetaBlocker,bisoprolol
+BetaBlocker,Zebeta
+BetaBlocker,carvedilol
+BetaBlocker,Coreg
+BetaBlocker,Coreg CR
+BetaBlocker,labetalol
+BetaBlocker,Trandate
+BetaBlocker,Normodyne
+BetaBlocker,metoprolol
+BetaBlocker,Lopressor
+BetaBlocker,Toprol XL
+BetaBlocker,nadolol
+BetaBlocker,Corgard
+BetaBlocker,propranolol
+BetaBlocker,Inderal
+BetaBlocker,Inderal LA
+BetaBlocker,Inderal XL
+BetaBlocker,InnoPran XL
+BetaBlocker,timolol
+BetaBlocker,Blocadren
+BetaBlocker,acebutolol
+BetaBlocker,Sectral
+BetaBlocker,betaxolol
+BetaBlocker,Kerlone
+BetaBlocker,esmolol
+BetaBlocker,Brevibloc
+BetaBlocker,nebivolol
+BetaBlocker,Bystolic
+BetaBlocker,pindolol
+BetaBlocker,Visken
+BetaBlocker,sotalol
+BetaBlocker,Betapace
+BetaBlocker,Betapace AF
+BetaBlocker,Sorine
+Potassium-Sparing-Diuretic,amiloride
+Potassium-Sparing-Diuretic,Midamor
+Potassium-Sparing-Diuretic,eplerenone
+Potassium-Sparing-Diuretic,Inspra
+Potassium-Sparing-Diuretic,spironolactone
+Potassium-Sparing-Diuretic,Aldactone
+Potassium-Sparing-Diuretic,Carospir
+Potassium-Sparing-Diuretic,triamterene
+Potassium-Sparing-Diuretic,Dyrenium
+Potassium-Sparing-Diuretic,Maxzide
+Potassium-Sparing-Diuretic,Maxzide-25
+Loop-Diuretic,bumetanide
+Loop-Diuretic,Bumex
+Loop-Diuretic,ethacrynic acid
+Loop-Diuretic,Edecrin
+Loop-Diuretic,furosemide
+Loop-Diuretic,Lasix
+Loop-Diuretic,torsemide
+Loop-Diuretic,Demadex
+alpha-1-Blocker,doxazosin
+alpha-1-Blocker,Cardura
+alpha-1-Blocker,Cardura XL
+alpha-1-Blocker,prazosin
+alpha-1-Blocker,Minipress
+alpha-1-Blocker,terazosin
+alpha-1-Blocker,Hytrin
+alpha-1-Blocker,alfuzosin
+alpha-1-Blocker,Uroxatral
+alpha-1-Blocker,silodosin
+alpha-1-Blocker,Rapaflo
+alpha-1-Blocker,tamsulosin
+alpha-1-Blocker,Flomax
+alpha-1-Blocker,Jalyn
+cholesterol absorption inhibitor,ezetimibe
+cholesterol absorption inhibitor,Zetia
+cholesterol absorption inhibitor,ezetimibe/simvastatin
+cholesterol absorption inhibitor,Vytorin
+alpha-2-Agonist,clonidine
+alpha-2-Agonist,Catapres
+alpha-2-Agonist,Catapres-TTS
+alpha-2-Agonist,Kapvay
+alpha-2-Agonist,guanfacine
+alpha-2-Agonist,Tenex
+alpha-2-Agonist,Intuniv
+alpha-2-Agonist,methyldopa
+alpha-2-Agonist,Aldomet
+alpha-2-Agonist,guanabenz
+alpha-2-Agonist,Wytensin
+Vasodilator,hydralazine
+Vasodilator,Apresoline
+Vasodilator,minoxidil
+Vasodilator,Loniten
+Vasodilator,nitroglycerin
+Vasodilator,Nitrostat
+Vasodilator,Nitro-Dur
+Vasodilator,Nitrolingual
+Vasodilator,isosorbide dinitrate
+Vasodilator,Isordil
+Vasodilator,Dilatrate-SR
+Vasodilator,isosorbide mononitrate
+Vasodilator,Imdur
+Vasodilator,Monoket
+Vasodilator,Ismo
+Thyroid,levothyroxine
+Thyroid,Synthroid
+Thyroid,Levoxyl
+Thyroid,Euthyrox
+Thyroid,Unithroid
+Thyroid,liothyronine
+Thyroid,Cytomel
+Thyroid,Triostat
+Thyroid,liotrix
+Thyroid,Thyrolar
+DMARD,methotrexate
+DMARD,Trexall
+DMARD,Rheumatrex
+DMARD,hydroxychloroquine
+DMARD,Plaquenil
+DMARD,sulfasalazine
+DMARD,Azulfidine
+DMARD,leflunomide
+DMARD,Arava
+DMARD,tofacitinib
+DMARD,Xeljanz
+DMARD,baricitinib
+DMARD,Olumiant
+DMARD,upadacitinib
+DMARD,Rinvoq
+Stimulant,amphetamine/dextroamphetamine
+Stimulant,Adderall
+Stimulant,Adderall XR
+Stimulant,dextroamphetamine
+Stimulant,Dexedrine
+Stimulant,Zenzedi
+Stimulant,ProCentra
+Stimulant,lisdexamfetamine
+Stimulant,Vyvanse
+Stimulant,methylphenidate
+Stimulant,Ritalin
+Stimulant,Ritalin SR
+Stimulant,Ritalin LA
+Stimulant,Concerta
+Stimulant,Daytrana
+Stimulant,Quillivant XR
+Stimulant,Quillichew ER
+Stimulant,dexmethylphenidate
+Stimulant,Focalin
+Stimulant,Focalin XR
+Stimulant,methamphetamine
+Stimulant,Desoxyn
+Stimulant,armodafinil
+Stimulant,Nuvigil
+Stimulant,modafinil
+Stimulant,Provigil
+Stimulant,phentermine
+Stimulant,Adipex-P
+Stimulant,Lomaira
+Stimulant,phentermine/topiramate
+Stimulant,Qsymia
+Stimulant,benzphetamine
+Stimulant,Didrex
+Stimulant,diethylpropion
+Stimulant,Tenuate
+Atypical-Antidep,bupropion
+Atypical-Antidep,Wellbutrin
+Atypical-Antidep,Wellbutrin SR
+Atypical-Antidep,Wellbutrin XL
+Atypical-Antidep,Zyban
+Atypical-Antidep,Aplenzin
+Atypical-Antidep,Forfivo XL
+Atypical-Antidep,mirtazapine
+Atypical-Antidep,Remeron
+Atypical-Antidep,Remeron SolTab
+Atypical-Antidep,trazodone
+Atypical-Antidep,Desyrel
+Atypical-Antidep,Oleptro
+Atypical-Antidep,nefazodone
+Atypical-Antidep,Serzone
+Atypical-Antidep,vilazodone
+Atypical-Antidep,Viibryd
+Atypical-Antidep,vortioxetine
+Atypical-Antidep,Trintellix
+Atypical-Antipsych,aripiprazole
+Atypical-Antipsych,Abilify
+Atypical-Antipsych,Abilify Maintena
+Atypical-Antipsych,Aristada
+Atypical-Antipsych,asenapine
+Atypical-Antipsych,Saphris
+Atypical-Antipsych,Secuado
+Atypical-Antipsych,brexpiprazole
+Atypical-Antipsych,Rexulti
+Atypical-Antipsych,cariprazine
+Atypical-Antipsych,Vraylar
+Atypical-Antipsych,clozapine
+Atypical-Antipsych,Clozaril
+Atypical-Antipsych,Versacloz
+Atypical-Antipsych,FazaClo
+Atypical-Antipsych,iloperidone
+Atypical-Antipsych,Fanapt
+Atypical-Antipsych,lurasidone
+Atypical-Antipsych,Latuda
+Atypical-Antipsych,olanzapine
+Atypical-Antipsych,Zyprexa
+Atypical-Antipsych,Zyprexa Zydis
+Atypical-Antipsych,Zyprexa Relprevv
+Atypical-Antipsych,paliperidone
+Atypical-Antipsych,Invega
+Atypical-Antipsych,Invega Sustenna
+Atypical-Antipsych,Invega Trinza
+Atypical-Antipsych,quetiapine
+Atypical-Antipsych,Seroquel
+Atypical-Antipsych,Seroquel XR
+Atypical-Antipsych,risperidone
+Atypical-Antipsych,Risperdal
+Atypical-Antipsych,Risperdal Consta
+Atypical-Antipsych,Perseris
+Atypical-Antipsych,ziprasidone
+Atypical-Antipsych,Geodon
+antiviral,acyclovir
+antiviral,Zovirax
+antiviral,valacyclovir
+antiviral,Valtrex
+antiviral,famciclovir
+antiviral,Famvir
+antiviral,oseltamivir
+antiviral,Tamiflu
+antiviral,zanamivir
+antiviral,Relenza
+antiviral,baloxavir marboxil
+antiviral,Xofluza
+antiviral,ribavirin
+antiviral,Copegus
+antiviral,Rebetol
+antiviral,sofosbuvir/ledipasvir
+antiviral,Harvoni
+antiviral,sofosbuvir/velpatasvir
+antiviral,Epclusa
+antiviral,glecaprevir/pibrentasvir
+antiviral,Mavyret
+antifungal,fluconazole
+antifungal,Diflucan
+antifungal,itraconazole
+antifungal,Sporanox
+antifungal,voriconazole
+antifungal,Vfend
+antifungal,posaconazole
+antifungal,Noxafil
+antifungal,isavuconazonium sulfate
+antifungal,Cresemba
+antifungal,amphotericin B
+antifungal,Fungizone
+antifungal,Ambisome
+antifungal,caspofungin
+antifungal,Cancidas
+antifungal,micafungin
+antifungal,Mycamine
+antifungal,anidulafungin
+antifungal,Eraxis
+antiviral-HIV,abacavir
+antiviral-HIV,Ziagen
+antiviral-HIV,lamivudine
+antiviral-HIV,Epivir
+antiviral-HIV,zidovudine
+antiviral-HIV,Retrovir
+antiviral-HIV,emtricitabine
+antiviral-HIV,Emtriva
+antiviral-HIV,tenofovir disoproxil fumarate
+antiviral-HIV,Viread
+antiviral-HIV,tenofovir alafenamide
+antiviral-HIV,Descovy
+antiviral-HIV,efavirenz
+antiviral-HIV,Sustiva
+antiviral-HIV,rilpivirine
+antiviral-HIV,Edurant
+antiviral-HIV,nevirapine
+antiviral-HIV,Viramune
+antiviral-HIV,etravirine
+antiviral-HIV,Intelence
+antiviral-HIV,darunavir
+antiviral-HIV,Prezista
+antiviral-HIV,atazanavir
+antiviral-HIV,Reyataz
+antiviral-HIV,lopinavir/ritonavir
+antiviral-HIV,Kaletra
+antiviral-HIV,nelfinavir
+antiviral-HIV,Viracept
+antiviral-HIV,saquinavir
+antiviral-HIV,Invirase
+osphonate,alendronate
+osphonate,Fosamax
+osphonate,risedronate
+osphonate,Actonel
+osphonate,Atelvia
+osphonate,ibandronate
+osphonate,Boniva
+osphonate,zoledronic acid
+osphonate,Reclast
+osphonate,Zometa
+osphonate,pamidronate
+osphonate,Aredia
+steroid,prednisone
+steroid,Deltasone
+steroid,prednisolone
+steroid,Orapred
+steroid,Prelone
+steroid,methylprednisolone
+steroid,Medrol
+steroid,Solu-Medrol
+steroid,dexamethasone
+steroid,Decadron
+steroid,DexPak
+steroid,hydrocortisone
+steroid,Cortef
+steroid,Solu-Cortef
+steroid,betamethasone
+steroid,Celestone
+steroid,triamcinolone
+steroid,Kenalog
+steroid,Aristospan
+PPI,omeprazole
+PPI,Prilosec
+PPI,Prilosec OTC
+PPI,esomeprazole
+PPI,Nexium
+PPI,Nexium 24HR
+PPI,lansoprazole
+PPI,Prevacid
+PPI,Prevacid 24HR
+PPI,Prevacid SoluTab
+PPI,dexlansoprazole
+PPI,Dexilant
+PPI,pantoprazole
+PPI,Protonix
+PPI,rabeprazole
+PPI,AcipHex
+PPI,esomeprazole/naproxen
+PPI,Vimovo
+H2RA,ranitidine
+H2RA,Zantac
+H2RA,Zantac 360
+H2RA,famotidine
+H2RA,Pepcid
+H2RA,Pepcid AC
+H2RA,cimetidine
+H2RA,Tagamet
+H2RA,nizatidine
+H2RA,Axid
+NSAID,ibuprofen
+NSAID,Advil
+NSAID,Motrin
+NSAID,naproxen
+NSAID,Aleve
+NSAID,Naprosyn
+NSAID,Anaprox
+NSAID,celecoxib
+NSAID,Celebrex
+NSAID,diclofenac
+NSAID,Voltaren
+NSAID,Cataflam
+NSAID,Zorvolex
+NSAID,indomethacin
+NSAID,Indocin
+NSAID,Tivorbex
+NSAID,meloxicam
+NSAID,Mobic
+NSAID,Vivlodex
+NSAID,piroxicam
+NSAID,Feldene
+NSAID,ketorolac
+NSAID,Toradol
+NSAID,Acular
+NSAID,etodolac
+NSAID,Lodine
+NSAID,nabumetone
+NSAID,Relafen
+NSAID,sulindac
+NSAID,Clinoril
+NSAID,oxaprozin
+NSAID,Daypro
+NSAID,mefenamic acid
+NSAID,Ponstel
+NSAID,flurbiprofen
+NSAID,Ansaid
+NSAID,fenoprofen
+NSAID,Nalfon
+NSAID,tolmetin
+NSAID,Tolectin
