@@ -130,7 +130,8 @@ DATA_TARGETS = {
     "ked":               ("ked",               ("csv",)),
     "mammogram":         ("mammogram",         ("csv",)),
     "med list":          ("med list",          ("csv",)),
-    "encounter bp":      ("encounter bp",      ("csv",))
+    "encounter vitals":  ("encounter vitals",  ("csv",)),
+    "raf score":         ("raf score",         ("csv",))
 }
 
 def _natural_key(s: str):
@@ -167,7 +168,8 @@ a1c_df          = pd.read_csv(files["a1c"], parse_dates=["labdate"])
 ked_df          = pd.read_csv(files["ked"], parse_dates=["labdate"])
 mammo_df        = pd.read_csv(files["mammogram"], parse_dates=["dt f lst mmmgrm"])
 med_list_df     = pd.read_csv(files["med list"])
-vitals_df       = pd.read_csv(files["encounter bp"])
+vitals_df       = pd.read_csv(files["encounter vitals"])
+raf_df          = pd.read_csv(files["raf score"])
 
 # --------------- Clean up Demographics dataframe Calculate ages (vectorized, correct), anonymize zip and remove inactive and desceased patients -------------------------
 today = pd.Timestamp.today().normalize()
@@ -282,6 +284,7 @@ frames = {
     "ked": ked_df,
     "mammo": mammo_df,
     "med_list": med_list_df,
+    "raf": raf_df
 }
 
 allids = pd.Index([], dtype="Int64")
@@ -312,6 +315,10 @@ a1c_df["enterpriseid"]          = a1c_df["enterpriseid"].map(id_map)
 ked_df["enterpriseid"]          = ked_df["enterpriseid"].map(id_map)
 mammo_df["enterpriseid"]        = mammo_df["enterpriseid"].map(id_map)
 med_list_df["enterpriseid"]     = med_list_df["enterpriseid"].map(id_map)
+raf_df["enterpriseid"]          = raf_df["enterpriseid"].map(id_map)
+
+raf_df.rename(columns={"HCC RAF score": "RAF score"}, inplace=True)
+
 
 # display(demographics_df[demographics_df.duplicated(subset=["enterpriseid"])])
 
@@ -325,16 +332,17 @@ med_list_df["enterpriseid"]     = med_list_df["enterpriseid"].map(id_map)
 output_dir = Path.cwd() / Path("data")
 
 
-demographics_df.to_csv(output_dir / "demographics.csv", index=False)
-enc_base_df.to_csv(output_dir / "encounter base.csv", index=False)
-enc_dx_df.to_csv(output_dir / "encounter diagnoses.csv", index=False)
-colog_df.to_csv(output_dir / "cologuard.csv", index=False)
-surg_hx_df.to_csv(output_dir / "surgical history.csv", index=False)
-a1c_df.to_csv(output_dir / "a1c.csv", index=False)
-ked_df.to_csv(output_dir / "ked.csv", index=False)
-mammo_df.to_csv(output_dir / "mammogram.csv", index=False)
-med_list_df.to_csv(output_dir / "med list.csv", index=False)
+demographics_df.to_csv(output_dir / "demographics.csv", index = False)
+enc_base_df.to_csv(output_dir / "encounter base.csv", index = False)
+enc_dx_df.to_csv(output_dir / "encounter diagnoses.csv", index = False)
+colog_df.to_csv(output_dir / "cologuard.csv", index = False)
+surg_hx_df.to_csv(output_dir / "surgical history.csv", index = False)
+a1c_df.to_csv(output_dir / "a1c.csv", index = False)
+ked_df.to_csv(output_dir / "ked.csv", index = False)
+mammo_df.to_csv(output_dir / "mammogram.csv", index = False)
+med_list_df.to_csv(output_dir / "med list.csv", index = False)
 vitals_df.to_csv(output_dir / "vitals.csv", index = False)
+raf_df.to_csv(output_dir / "raf.csv", index = False)
 
 # colog_df["enterpriseid"]        = colog_df["enterpriseid"].map(id_map)
 # surg_hx_df["enterpriseid"]      = surg_hx_df["enterpriseid"].map(id_map)
