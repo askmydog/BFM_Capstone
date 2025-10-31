@@ -8,11 +8,14 @@ from IPython.display import display
 
 today = pd.Timestamp.today().normalize()
 
-ten_years_ago = today - pd.DateOffset(years=10)
-five_years_ago = today - pd.DateOffset(years=5)
-three_years_ago = today - pd.DateOffset(years=3)
-two_years_ago = today - pd.DateOffset(years=2)
-one_year_ago = today - pd.DateOffset(years=1)
+ten_years_ago              = today - pd.DateOffset(years=10)
+five_years_ago             = today - pd.DateOffset(years=5)
+three_years_ago            = today - pd.DateOffset(years=3)
+two_years_ago              = today - pd.DateOffset(years=2)
+one_year_ago               = today - pd.DateOffset(years=1)
+beginning_of_cal_year      = pd.Timestamp(today.year, 1, 1)
+beginning_of_last_cal_year = pd.Timestamp(today.year - 1, 1, 1)
+
 
 def get_latest_data_file(file_string: str, data_dir: str | Path = "data")->str:
     """Gets requested data file from "data" directory 
@@ -60,8 +63,9 @@ pattern = "|".join(["well", "awv"])
 
 enc_w_awv_df = enc_base_df.loc[
         (enc_base_df["appttype"].str.contains(pattern, case=False, na=False))
-        & (enc_base_df["cln enc date"] >= "2025-01-01")
+        & (enc_base_df["cln enc date"] >= beginning_of_cal_year)
         ]
+
 
 ids_index = pd.Index(enc_w_awv_df["enterpriseid"].dropna().astype(demographics_df.index.dtype))
 
@@ -129,24 +133,31 @@ pt_wo_colo_df.head()
 mammogram_df = pd.read_csv(get_latest_data_file("mammogram"), parse_dates=["dt f lst mmmgrm"])
 mammogram_df["dt f lst mmmgrm"] = pd.to_datetime(mammogram_df["dt f lst mmmgrm"], errors="coerce")
 
-mammo_df = mammogram_df[mammogram_df["dt f lst mmmgrm"] >= two_years_ago]
+recent_mammo_df = mammogram_df[mammogram_df["dt f lst mmmgrm"] >= two_years_ago]
 
-pt_wo_mammo = demographics_df[
-    (~demographics_df.index.isin(mammo_df["enterpriseid"])) 
+pt_wo_mammo_df = demographics_df[
+    (~demographics_df.index.isin(recent_mammo_df["enterpriseid"])) 
     & (demographics_df["age"] >= 40)
     & (demographics_df["patientsex"] == "F")
 ]
 
-pt_wo_mammo.head()
+pt_wo_mammo_df.head()
+
+mammogram_df.dropna(subset=["mmmgrm rslt"], inplace=True)
+
+pt_w_abnml_mammo_df = mammogram_df[mammogram_df["mmmgrm rslt"].dropna().str.contains("Abnormal")]
+display(pt_w_abnml_mammo_df)
 
 #%% -------------------------DIABETIC SCREENING-----------------------
 
-a1c_df = pd.read_csv(get_latest_data_file("a1c"), parse_dates=["labdate"])
+a1c_df = pd.read_csv(get_latest_data_file("a1c"), 
+                     parse_dates=["labdate"],
+                     dtype={"labvalue":float})
 
-screen_a1c_df = a1c_df[a1c_df["labdate"] >= two_years_ago]
+recent_a1c_df = a1c_df[a1c_df["labdate"] >= two_years_ago]
 
 pt_wo_a1c = demographics_df[
-    (~demographics_df.index.isin(screen_a1c_df["enterpriseid"]))
+    (~demographics_df.index.isin(recent_a1c_df["enterpriseid"]))
     & (demographics_df["age"] >= 40)
     ]
 
@@ -184,15 +195,26 @@ latest_enc_df = (
 
 latest_vitals_df = pd.merge(vitals_df, latest_enc_df, on="cln enc id").sort_values(["cln enc date"])
 
-pt_w_sbp_ov_140_df = latest_vitals_df[(latest_vitals_df["sys BP"] >= 140)]
-pt_w_dbp_ov_90_df = latest_vitals_df[(latest_vitals_df["dia BP"] >= 90)]
-pt_w_bmi_ov_35_df = latest_vitals_df[(latest_vitals_df["enc BMI"] >= 35)]
+pt_w_sbp_ov_140_df = latest_vitals_df[(latest_vitals_df["sys BP"] >= 140) & (latest_vitals_df["cln enc date"] >= one_year_ago)]
+pt_w_dbp_ov_90_df = latest_vitals_df[(latest_vitals_df["dia BP"] >= 90) & (latest_vitals_df["cln enc date"] >= one_year_ago)]
+bmi_ov_35_df = latest_vitals_df[(latest_vitals_df["enc BMI"] >= 35) & (latest_vitals_df["cln enc date"] >= one_year_ago)]
+
 
 # print(vitals_df["cln enc id"].head())
 # print(enc_base_df["cln enc id"].head())
-display(pt_w_bmi_ov_35_df)
+display(bmi_ov_35_df)
 
 
-#%% -------------------------------OBESE PATIENTS------------------------------
+#%% ------------------------------HIGH RAF SCORE-------------------------------
+
+raf_df = pd.read_csv(get_latest_data_file("raf"), 
+                     index_col=["enterpriseid"],
+                     dtype={"RAF score": float})
+
+pt_w_raf_ov_1 = raf_df[raf_df["RAF score"] >= 1]
+
+display( pt_w_raf_ov_1)
+
+#%% ---------------------------------Medications------------------------------
 
 
