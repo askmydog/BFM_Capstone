@@ -4,6 +4,7 @@ from  pathlib import Path
 from datetime import datetime, timedelta
 import os
 import re
+from IPython.display import display
 
 today = pd.Timestamp.today().normalize()
 
@@ -168,12 +169,30 @@ pt_w_uncont_dm = demographics_df[demographics_df.index.isin(a1c_over_9_df["enter
 
 pt_w_uncont_dm.head()
 
-#%%
+#%% --------------------- ABNORMAL VITALS (BP AND BMI)--------------------------
 
-a1c_df = pd.read_csv(get_latest_data_file("a1c"), parse_dates=["labdate"])
+vitals_df = pd.read_csv(get_latest_data_file("vitals"))
+enc_base_df = pd.read_csv(get_latest_data_file("encounter base"), 
+                          parse_dates=["cln enc date"], 
+                          index_col=["cln enc id"])
+
+latest_enc_df = (
+    enc_base_df
+    .sort_values(["enterpriseid", "cln enc date"], ascending=[True, False])
+    .drop_duplicates(subset="enterpriseid", keep="first")
+)
+
+latest_vitals_df = pd.merge(vitals_df, latest_enc_df, on="cln enc id").sort_values(["cln enc date"])
+
+pt_w_sbp_ov_140_df = latest_vitals_df[(latest_vitals_df["sys BP"] >= 140)]
+pt_w_dbp_ov_90_df = latest_vitals_df[(latest_vitals_df["dia BP"] >= 90)]
+pt_w_bmi_ov_35_df = latest_vitals_df[(latest_vitals_df["enc BMI"] >= 35)]
+
+# print(vitals_df["cln enc id"].head())
+# print(enc_base_df["cln enc id"].head())
+display(pt_w_bmi_ov_35_df)
 
 
+#%% -------------------------------OBESE PATIENTS------------------------------
 
-a1c_df["labvalue"].unique()
 
-# %%
