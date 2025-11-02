@@ -72,9 +72,9 @@ ids_index = pd.Index(enc_w_awv_df["enterpriseid"].dropna().astype(demographics_d
 # Find all patients without a wellness visit since 1/1/2025
 pt_wo_awv_df = demographics_df.loc[(demographics_df.index.difference(ids_index))]
 
-ov65_wo_awv = pt_wo_awv_df.loc[(pt_wo_awv_df["age"] >= 40)]
+ov40_wo_awv = pt_wo_awv_df.loc[(pt_wo_awv_df["age"] >= 40)]
 
-ov65_wo_awv.head()
+ov40_wo_awv.head()
 
 
 
@@ -204,13 +204,16 @@ bmi_ov_35_df = latest_vitals_df[(latest_vitals_df["enc BMI"] >= 35) & (latest_vi
 # print(enc_base_df["cln enc id"].head())
 display(bmi_ov_35_df)
 
+#%%--------------------------- KIDNEY EVALUTION IN DIABETES (KED) ---------------------
+
+
 
 #%% ------------------------------HIGH RAF SCORE-------------------------------
 
 raf_df = pd.read_csv(get_latest_data_file("raf"), 
                      index_col=["enterpriseid"],
                      dtype={"RAF score": float})
-
+9
 pt_w_raf_ov_1 = raf_df[raf_df["RAF score"] >= 1]
 
 display( pt_w_raf_ov_1)
