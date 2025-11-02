@@ -270,7 +270,17 @@ vitals_df["sys BP"] = vitals_df["Enc BP"].apply(format_sys_bp)
 vitals_df["dia BP"] = vitals_df["Enc BP"].apply(format_dia_bp)
 del vitals_df["Enc BP"]
 
+#---------------------------Format Kidney Evaluation in Diabetes (KED)------------------
 
+
+ked_pattern = re.compile(r"(?:A\w*\/?C(?:\w+\s)?R|GFR)", re.I)
+ked_mask = ked_df["labanalyte"].str.contains(ked_pattern, na=False)
+ked_df = ked_df[ked_mask]
+
+numeric_pattern = re.compile(r"^>?(\d+(?:\.\d+)?)", re.I)
+ked_df.loc[ked_mask, "labvalue"] = ked_df.loc[ked_mask, "labvalue"].str.extract(numeric_pattern)
+
+display(ked_df)
 
 # ------------------------- Assign new random IDs (fast, reproducible) -------------------
 
