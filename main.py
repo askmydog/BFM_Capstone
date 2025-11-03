@@ -207,6 +207,47 @@ display(bmi_ov_35_df)
 
 #%% ------------------------- DIABETIC PATIENTS ------------------------------
 
+enc_base_df = pd.read_csv(get_latest_data_file("encounter base"), 
+                          parse_dates=["cln enc date"], 
+                          index_col=["cln enc id"])
+
+enc_dx_df = pd.read_csv(get_latest_data_file("encounter diagnoses"))
+
+# Return dataframe clinical encounters with "DM dx" set as if a diabetic diagnosis was present during that encounter
+dm_by_enc_df = (
+    enc_dx_df
+    .groupby("cln enc id", as_index=False)["DM dx"]
+    .max()
+    )
+
+# Combine dataframe of diabetic encounters with remainder of encounter information
+enc_dm_df = (
+    pd.merge(
+        enc_base_df, 
+        dm_by_enc_df, 
+        left_index=True, 
+        right_on="cln enc id", 
+        how="inner"
+        )
+    )
+
+# Filter encounters to be within the past 2 years
+recent_enc_dm_df = enc_dm_df[enc_dm_df["cln enc date"] >= two_years_ago]
+
+# Return dataframe with enterpriseid and whether patient has 2 or more DM diagnoses in the past 2 years
+entid_dm_dx_df = (recent_enc_dm_df.groupby(["enterpriseid"])["DM dx"].sum() >= 2).astype("Int8")
+
+# Merge with demographics dataframe
+pt_w_dm_dx_df = pd.merge(
+    demographics_df,
+    entid_dm_dx_df,
+    left_index=True,
+    right_index=True,
+    how="inner"
+    )
+
+
+display(pt_w_ov_2_dm_dx_df[pt_w_dm_dx_df["DM dx"] == 1])
 
 
 #%%--------------------------- KIDNEY EVALUTION IN DIABETES (KED) ---------------------
