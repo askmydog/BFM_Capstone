@@ -204,6 +204,11 @@ bmi_ov_35_df = latest_vitals_df[(latest_vitals_df["enc BMI"] >= 35) & (latest_vi
 # print(enc_base_df["cln enc id"].head())
 display(bmi_ov_35_df)
 
+
+#%% ------------------------- DIABETIC PATIENTS ------------------------------
+
+
+
 #%%--------------------------- KIDNEY EVALUTION IN DIABETES (KED) ---------------------
 
 
