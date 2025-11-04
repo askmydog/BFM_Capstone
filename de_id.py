@@ -298,43 +298,43 @@ ked_df["labvalue"] = pd.to_numeric(
 
 # E08-E09: Diabetes mellitus due to other conditions, E10: Type 1 DM, E11: Type 2 DM, E13: Other DM 
 dm_pattern = re.compile(r"^E(?:0[8-9]|1[0-1,3])", re.I)
-enc_dx_df["DM dx"] = enc_dx_df["icd10encounterdiagcode"].str.contains(dm_pattern, na=False).astype("Int8")
+enc_dx_df["dm"] = enc_dx_df["icd10encounterdiagcode"].str.contains(dm_pattern, na=False).astype("Int8")
 
 # I2: Myocardial Infarction, I5: Heart failure, I6: Stroke, I7: Peripheral Arterial Disease
 ascvd_pattern = re.compile(r"^(?:I[2,5-7])")
-enc_dx_df["ASCVD dx"] = enc_dx_df["icd10encounterdiagcode"].str.contains(ascvd_pattern, na=False).astype("Int8")
+enc_dx_df["ascvd"] = enc_dx_df["icd10encounterdiagcode"].str.contains(ascvd_pattern, na=False).astype("Int8")
 
 # I10-I19: Hypertension and disorders due to hypertension
 htn_pattern = re.compile(r"^I1", re.I)
-enc_dx_df["HTN dx"] = enc_dx_df["icd10encounterdiagcode"].str.contains(htn_pattern, na=False).astype("Int8")
+enc_dx_df["htn"] = enc_dx_df["icd10encounterdiagcode"].str.contains(htn_pattern, na=False).astype("Int8")
 
 # E78: Hyperlipidemia
 hlp_pattern = re.compile(r"^E78", re.I)
-enc_dx_df["HLP dx"] = enc_dx_df["icd10encounterdiagcode"].str.contains(htn_pattern, na=False).astype("Int8")
+enc_dx_df["hlp"] = enc_dx_df["icd10encounterdiagcode"].str.contains(hlp_pattern, na=False).astype("Int8")
 
 # F30-F31: Mania and Bipolar, F32-F39: Major Depressive Disorder and other mood disorders, F40-F49: Anxiety, Phobias and other Mental Disorders 
 mood_pattern = re.compile(r"^F(?:3|4)", re.I)
-enc_dx_df["Mood dx"] = enc_dx_df["icd10encounterdiagcode"].str.contains(mood_pattern, na=False).astype("Int8")
+enc_dx_df["mood"] = enc_dx_df["icd10encounterdiagcode"].str.contains(mood_pattern, na=False).astype("Int8")
 
 # F81: Learning disabilities F90-F91: ADHD and conduct disorders, R47-R48: Speech and reading disorders
 learndis_pattern = re.compile(r"^(?:F(?:8[0-1,4,8-9]|9[0-1])|R4[7-8])", re.I)
-enc_dx_df["Mood dx"] = enc_dx_df["icd10encounterdiagcode"].str.contains(mood_pattern, na=False).astype("Int8")
+enc_dx_df["learndis"] = enc_dx_df["icd10encounterdiagcode"].str.contains(learndis_pattern, na=False).astype("Int8")
 
 # F01-F09: Vascular dementia and Dementia due to other diseases, R41: Memory impairment, G20-G32: Parkinson's & Alzheimer's Dementia
 dementia_pattern = re.compile(r"^(?:F0[1-3]|R41|G(?:2|3[0-2]))", re.I)
-enc_dx_df["Dementia dx"] = enc_dx_df["icd10encounterdiagcode"].str.contains(dementia_pattern, na=False).astype("Int8")
+enc_dx_df["dementia"] = enc_dx_df["icd10encounterdiagcode"].str.contains(dementia_pattern, na=False).astype("Int8")
 
 # F10-F19: Substance use disorders
-subuse_pattern = re.compile(r"^F1", re.I)
-enc_dx_df["Sub Use dx"] = enc_dx_df["icd10encounterdiagcode"].str.contains(subuse_pattern, na=False).astype("Int8")
+sud_pattern = re.compile(r"^F1", re.I)
+enc_dx_df["sud"] = enc_dx_df["icd10encounterdiagcode"].str.contains(sud_pattern, na=False).astype("Int8")
 
 # Z55-Z65: SDoH Z73: Problems related to life difficulty
 sdoh_pattern = re.compile(r"^Z(?:5[5-9]|6[0-5]|73)", re.I)
-enc_dx_df["SDoH dx"] = enc_dx_df["icd10encounterdiagcode"].str.contains(sdoh_pattern, na=False).astype("Int8")
+enc_dx_df["sdoh"] = enc_dx_df["icd10encounterdiagcode"].str.contains(sdoh_pattern, na=False).astype("Int8")
 
 # Z91: Patient noncompliance with treatment, Z281-z289: Immunization refused
-compliance_pattern = re.compile(r"^Z(?:91|28[1-9])", re.I)
-enc_dx_df["Pat Compliance dx"] = enc_dx_df["icd10encounterdiagcode"].str.contains(compliance_pattern, na=False).astype("Int8")
+noncomp_pattern = re.compile(r"^Z(?:91|28[1-9])", re.I)
+enc_dx_df["noncomp"] = enc_dx_df["icd10encounterdiagcode"].str.contains(noncomp_pattern, na=False).astype("Int8")
 
 # ------------------------- Assign new random IDs (fast, reproducible) -------------------
 
