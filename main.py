@@ -208,70 +208,108 @@ display(bmi_ov_35_df)
 #%% ------------------------- DIAGNOSIS GROUPS ------------------------------
 
 
-def get_diagnosis_dataframe(dx_group: str, 
-                            enc_base_df: pd.DataFrame, 
-                            enc_dx_df: pd.DataFrame,
-                            time_window: pd.Timestamp,
-                            num_diagnoses: int
-                            ) -> pd.DataFrame:
-    """
-    Returns dataframe of diagnosis group of interest, with diagnosis group column 
-    that represents whether the diagnosis was made on at least the number of specified times 
-    within the specified time window. 
-    """
+# def get_diagnosis_dataframe(dx_group: str, 
+#                             enc_base_df: pd.DataFrame, 
+#                             enc_dx_df: pd.DataFrame,
+#                             time_window: pd.Timestamp,
+#                             num_diagnoses: int
+#                             ) -> pd.DataFrame:
+#     """
+#     Returns dataframe of diagnosis group of interest, with diagnosis group column 
+#     that represents whether the diagnosis was made on at least the number of specified times 
+#     within the specified time window. 
+#     """
     
-    if dx_group not in enc_dx_df.columns:
-        raise ValueError(f"{dx_group} not in enc_dx_df list of columns: {list(enc_dx_df.columns)}")
+#     dx = enc_dx_df.copy()
+#     base = enc_base_df.copy()
+
+#     if dx_group not in dx.columns:
+#         raise ValueError(f"{dx_group} not in enc_dx_df list of columns: {list(enc_dx_df.columns)}")
     
-    # Groupby encounter diagnosis dataframe by clinical encounter ID and assign a 1 to the target column if a diagnosis code is present for that encounter
-    dx_by_enc_df = enc_dx_df.groupby("cln enc id")[dx_group].max()
+#     # Groupby encounter diagnosis dataframe by clinical encounter ID and assign a 1 to the target column if a diagnosis code is present for that encounter
+#     dx_by_enc_df = dx.groupby("cln enc id")[dx_group].max()
 
-    # Merge dataframe with enc_base_df to get patient ID and date data
-    enc_dx_merged_df = pd.merge(enc_base_df, dx_by_enc_df, left_index=True, right_on="cln enc id")
+#     # Merge dataframe with enc_base_df to get patient ID and date data
+#     enc_dx_merged_df = pd.merge(base, dx_by_enc_df, left_index=True, right_on="cln enc id")
 
-    # Filter clinical encounters occuring within the time window of interest
-    recent_enc_dx_df = enc_dx_merged_df[enc_dx_merged_df["cln enc date"] >= time_window]
+#     # Filter clinical encounters occuring within the time window of interest
+#     recent_enc_dx_df = enc_dx_merged_df[enc_dx_merged_df["cln enc date"] >= time_window]
 
-    # Groupby recent clin enc dataframe by enterpriseid and sum diagnosis group of interest
-    sum_dx_by_entid = recent_enc_dx_df.groupby("enterpriseid")[dx_group].sum().rename(dx_group)
+#     # Groupby recent clin enc dataframe by enterpriseid and sum diagnosis group of interest
+#     sum_dx_by_entid = recent_enc_dx_df.groupby("enterpriseid")[dx_group].sum().rename(dx_group)
 
-    # return dataframe with dx_group column containing 1 if gte specified number of diagnoses in the time window of interest
-    return (sum_dx_by_entid >= num_diagnoses).astype("Int8").to_frame()
+#     # return dataframe with dx_group column containing 1 if gte specified number of diagnoses in the time window of interest
+#     return (sum_dx_by_entid >= num_diagnoses).astype("Int8").to_frame()
 
 
+# enc_base_df = pd.read_csv(get_latest_data_file("encounter base"), 
+#                           parse_dates=["cln enc date"], 
+#                           index_col=["cln enc id"])
+# enc_dx_df = pd.read_csv(get_latest_data_file("encounter diagnoses"))
+# two_years_ago = today - pd.DateOffset(years=2)
+# num_diagnoses = 2
+
+# pt_w_dm_df       = get_diagnosis_dataframe("dm",       enc_base_df, enc_dx_df, two_years_ago, num_diagnoses)
+# pt_w_ascvd_df    = get_diagnosis_dataframe("ascvd",    enc_base_df, enc_dx_df, two_years_ago, num_diagnoses) 
+# pt_w_htn_df      = get_diagnosis_dataframe("htn",      enc_base_df, enc_dx_df, two_years_ago, num_diagnoses)
+# pt_w_hlp_df      = get_diagnosis_dataframe("hlp",      enc_base_df, enc_dx_df, two_years_ago, num_diagnoses)
+# pt_w_mood_df     = get_diagnosis_dataframe("mood",     enc_base_df, enc_dx_df, two_years_ago, num_diagnoses)
+# pt_w_learndis_df = get_diagnosis_dataframe("learndis", enc_base_df, enc_dx_df, two_years_ago, num_diagnoses)
+# pt_w_dementia_df = get_diagnosis_dataframe("dementia", enc_base_df, enc_dx_df, two_years_ago, num_diagnoses)
+# pt_w_sud_df      = get_diagnosis_dataframe("sud",      enc_base_df, enc_dx_df, two_years_ago, num_diagnoses)
+# pt_w_sdoh_df     = get_diagnosis_dataframe("sdoh",     enc_base_df, enc_dx_df, two_years_ago, num_diagnoses)
+# pt_w_noncomp_df  = get_diagnosis_dataframe("noncomp",  enc_base_df, enc_dx_df, two_years_ago, num_diagnoses)
+
+
+
+# pt_dx_reconstructed = (pt_w_dm_df
+#                        .merge(pt_w_ascvd_df, left_index=True, right_index=True)
+#                        .merge(pt_w_htn_df, left_index=True, right_index=True)
+#                        .merge(pt_w_hlp_df, left_index=True, right_index=True)
+#                        .merge(pt_w_mood_df, left_index=True, right_index=True)
+#                        .merge(pt_w_learndis_df, left_index=True, right_index=True)
+#                        .merge(pt_w_dementia_df, left_index=True, right_index=True)
+#                        .merge(pt_w_sud_df, left_index=True, right_index=True)
+#                        .merge(pt_w_sdoh_df, left_index=True, right_index=True)
+#                        .merge(pt_w_noncomp_df, left_index=True, right_index=True)
+#                        )
+
+# display(pt_dx_reconstructed)
+
+#%% ---------------------------- DIAGNOSIS GROUPS, REFACTORED  ---------------------------------
 enc_base_df = pd.read_csv(get_latest_data_file("encounter base"), 
                           parse_dates=["cln enc date"], 
                           index_col=["cln enc id"])
 enc_dx_df = pd.read_csv(get_latest_data_file("encounter diagnoses"))
-two_years_ago = today - pd.DateOffset(years=2)
-num_diagnoses = 2
 
-pt_w_dm_df       = get_diagnosis_dataframe("dm",       enc_base_df, enc_dx_df, two_years_ago, num_diagnoses)
-pt_w_ascvd_df    = get_diagnosis_dataframe("ascvd",    enc_base_df, enc_dx_df, two_years_ago, num_diagnoses) 
-pt_w_htn_df      = get_diagnosis_dataframe("htn",      enc_base_df, enc_dx_df, two_years_ago, num_diagnoses)
-pt_w_hlp_df      = get_diagnosis_dataframe("hlp",      enc_base_df, enc_dx_df, two_years_ago, num_diagnoses)
-pt_w_mood_df     = get_diagnosis_dataframe("mood",     enc_base_df, enc_dx_df, two_years_ago, num_diagnoses)
-pt_w_learndis_df = get_diagnosis_dataframe("learndis", enc_base_df, enc_dx_df, two_years_ago, num_diagnoses)
-pt_w_dementia_df = get_diagnosis_dataframe("dementia", enc_base_df, enc_dx_df, two_years_ago, num_diagnoses)
-pt_w_sud_df      = get_diagnosis_dataframe("sud",      enc_base_df, enc_dx_df, two_years_ago, num_diagnoses)
-pt_w_sdoh_df     = get_diagnosis_dataframe("sdoh",     enc_base_df, enc_dx_df, two_years_ago, num_diagnoses)
-pt_w_noncomp_df  = get_diagnosis_dataframe("noncomp",  enc_base_df, enc_dx_df, two_years_ago, num_diagnoses)
+dx_groups = ["dm","ascvd","htn","hlp","mood","learndis","dementia","sud","sdoh","noncomp"]
+
+# Clean dx table
+dx = enc_dx_df.copy()
+dx[dx_groups] = (dx[dx_groups]
+                 .apply(pd.to_numeric, errors="coerce")
+                 .fillna(0).clip(0,1).astype("Int8"))
+
+# One row per encounter with flags (any dx in that encounter)
+dx_by_enc = dx.groupby("cln enc id", as_index=True)[dx_groups].max()
+
+# Join to encounters
+enc = enc_base_df.copy()
+enc["cln enc date"] = pd.to_datetime(enc["cln enc date"], errors="coerce")
+if enc.index.name != "cln enc id":
+    enc = enc.set_index("cln enc id", drop=False)
+
+enc_with = enc.join(dx_by_enc, how="left").fillna(0)
+
+# Filter window
+recent = enc_with.loc[enc_with["cln enc date"] >= two_years_ago]
+
+# Counts and flags per patient
+pt_counts = recent.groupby("enterpriseid", as_index=True)[dx_groups].sum()
+pt_flags  = (pt_counts >= 2 ).astype("Int8")
 
 
-
-pt_dx_reconstructed = (pt_w_dm_df
-                       .merge(pt_w_ascvd_df, left_index=True, right_index=True)
-                       .merge(pt_w_htn_df, left_index=True, right_index=True)
-                       .merge(pt_w_hlp_df, left_index=True, right_index=True)
-                       .merge(pt_w_mood_df, left_index=True, right_index=True)
-                       .merge(pt_w_learndis_df, left_index=True, right_index=True)
-                       .merge(pt_w_dementia_df, left_index=True, right_index=True)
-                       .merge(pt_w_sud_df, left_index=True, right_index=True)
-                       .merge(pt_w_sdoh_df, left_index=True, right_index=True)
-                       .merge(pt_w_noncomp_df, left_index=True, right_index=True)
-                       )
-
-display(pt_dx_reconstructed)
+display(pt_flags)
 
 #%%--------------------------- KIDNEY EVALUTION IN DIABETES (KED) ---------------------
 
