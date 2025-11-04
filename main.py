@@ -205,100 +205,73 @@ bmi_ov_35_df = latest_vitals_df[(latest_vitals_df["enc BMI"] >= 35) & (latest_vi
 display(bmi_ov_35_df)
 
 
-#%% ------------------------- DIABETIC PATIENTS ------------------------------
+#%% ------------------------- DIAGNOSIS GROUPS ------------------------------
+
+
+def get_diagnosis_dataframe(dx_group: str, 
+                            enc_base_df: pd.DataFrame, 
+                            enc_dx_df: pd.DataFrame,
+                            time_window: pd.Timestamp,
+                            num_diagnoses: int
+                            ) -> pd.DataFrame:
+    """
+    Returns dataframe of diagnosis group of interest, with diagnosis group column 
+    that represents whether the diagnosis was made on at least the number of specified times 
+    within the specified time window. 
+    """
+    
+    if dx_group not in enc_dx_df.columns:
+        raise ValueError(f"{dx_group} not in enc_dx_df list of columns: {list(enc_dx_df.columns)}")
+    
+    # Groupby encounter diagnosis dataframe by clinical encounter ID and assign a 1 to the target column if a diagnosis code is present for that encounter
+    dx_by_enc_df = enc_dx_df.groupby("cln enc id")[dx_group].max()
+
+    # Merge dataframe with enc_base_df to get patient ID and date data
+    enc_dx_merged_df = pd.merge(enc_base_df, dx_by_enc_df, left_index=True, right_on="cln enc id")
+
+    # Filter clinical encounters occuring within the time window of interest
+    recent_enc_dx_df = enc_dx_merged_df[enc_dx_merged_df["cln enc date"] >= time_window]
+
+    # Groupby recent clin enc dataframe by enterpriseid and sum diagnosis group of interest
+    sum_dx_by_entid = recent_enc_dx_df.groupby("enterpriseid")[dx_group].sum().rename(dx_group)
+
+    # return dataframe with dx_group column containing 1 if gte specified number of diagnoses in the time window of interest
+    return (sum_dx_by_entid >= num_diagnoses).astype("Int8").to_frame()
+
 
 enc_base_df = pd.read_csv(get_latest_data_file("encounter base"), 
                           parse_dates=["cln enc date"], 
                           index_col=["cln enc id"])
-
 enc_dx_df = pd.read_csv(get_latest_data_file("encounter diagnoses"))
+two_years_ago = today - pd.DateOffset(years=2)
+num_diagnoses = 2
 
-# Return dataframe clinical encounters with "DM dx" set as if a diabetic diagnosis was present during that encounter
-dm_by_enc_df = enc_dx_df.groupby("cln enc id", as_index=False)["DM dx"].max()
-
-# Combine dataframe of diabetic encounters with remainder of encounter information
-enc_dm_df = pd.merge(enc_base_df, dm_by_enc_df, left_index=True, right_on="cln enc id")
-
-# Filter encounters to be within the past 2 years
-recent_enc_dm_df = enc_dm_df[enc_dm_df["cln enc date"] >= two_years_ago]
-
-# Return dataframe with enterpriseid and whether patient has 2 or more DM diagnoses in the past 2 years
-pt_w_dm_dx_df = (recent_enc_dm_df.groupby(["enterpriseid"])["DM dx"].sum() >= 2).astype("Int8")
-
-#%% ------------------------- ASCVD PATIENTS ------------------------------
-
-enc_base_df = pd.read_csv(get_latest_data_file("encounter base"), 
-                          parse_dates=["cln enc date"], 
-                          index_col=["cln enc id"])
-
-enc_dx_df = pd.read_csv(get_latest_data_file("encounter diagnoses"))
-
-# Return dataframe clinical encounters with "ASCVD dx" set as if a ASCVD diagnosis was present during that encounter
-ascvd_by_enc_df = enc_dx_df.groupby("cln enc id", as_index=False)["ASCVD dx"].max()
-
-# Combine dataframe of diabetic encounters with remainder of encounter information
-enc_ascvd_df = pd.merge(enc_base_df, ascvd_by_enc_df, left_index=True, right_on="cln enc id")
-
-# Filter encounters to be within the past 2 years
-recent_enc_ascvd_df = enc_ascvd_df[enc_ascvd_df["cln enc date"] >= two_years_ago]
-
-# Return dataframe with enterpriseid and whether patient has 2 or more DM diagnoses in the past 2 years
-pt_w_ascvd_dx = (recent_enc_ascvd_df.groupby(["enterpriseid"])["ASCVD dx"].sum() >= 2).astype("Int8")
-
-display(pt_w_ascvd_dx)
-
-#%% ------------------------- ASCVD PATIENTS ------------------------------
-
-enc_base_df = pd.read_csv(get_latest_data_file("encounter base"), 
-                          parse_dates=["cln enc date"], 
-                          index_col=["cln enc id"])
-
-enc_dx_df = pd.read_csv(get_latest_data_file("encounter diagnoses"))
-
-# Return dataframe clinical encounters with "ASCVD dx" set as if a ASCVD diagnosis was present during that encounter
-htn_by_enc_df = enc_dx_df.groupby("cln enc id", as_index=False)["HTN dx"].max()
-
-# Combine dataframe of diabetic encounters with remainder of encounter information
-enc_htn_df = pd.merge(enc_base_df, htn_by_enc_df, left_index=True, right_on="cln enc id")
-
-# Filter encounters to be within the past 2 years
-recent_enc_htn_df = enc_htn_df[enc_htn_df["cln enc date"] >= two_years_ago]
-
-# Return dataframe with enterpriseid and whether patient has 2 or more DM diagnoses in the past 2 years
-pt_w_htn_dx = (recent_enc_htn_df.groupby(["enterpriseid"])["HTN dx"].sum() >= 2).astype("Int8")
-
-display(pt_w_ascvd_dx)
-
-#%% ------------------------- ASCVD PATIENTS ------------------------------
+pt_w_dm_df       = get_diagnosis_dataframe("dm",       enc_base_df, enc_dx_df, two_years_ago, num_diagnoses)
+pt_w_ascvd_df    = get_diagnosis_dataframe("ascvd",    enc_base_df, enc_dx_df, two_years_ago, num_diagnoses) 
+pt_w_htn_df      = get_diagnosis_dataframe("htn",      enc_base_df, enc_dx_df, two_years_ago, num_diagnoses)
+pt_w_hlp_df      = get_diagnosis_dataframe("hlp",      enc_base_df, enc_dx_df, two_years_ago, num_diagnoses)
+pt_w_mood_df     = get_diagnosis_dataframe("mood",     enc_base_df, enc_dx_df, two_years_ago, num_diagnoses)
+pt_w_learndis_df = get_diagnosis_dataframe("learndis", enc_base_df, enc_dx_df, two_years_ago, num_diagnoses)
+pt_w_dementia_df = get_diagnosis_dataframe("dementia", enc_base_df, enc_dx_df, two_years_ago, num_diagnoses)
+pt_w_sud_df      = get_diagnosis_dataframe("sud",      enc_base_df, enc_dx_df, two_years_ago, num_diagnoses)
+pt_w_sdoh_df     = get_diagnosis_dataframe("sdoh",     enc_base_df, enc_dx_df, two_years_ago, num_diagnoses)
+pt_w_noncomp_df  = get_diagnosis_dataframe("noncomp",  enc_base_df, enc_dx_df, two_years_ago, num_diagnoses)
 
 
-def get_diagnosis_dataframe(dx_group: str, enc_base_df: pd.DataFrame, enc_dx_df: pd.DataFrame) -> pd.DataFrame:
-    
-    if dx_group not in enc_dx_df
-    
-    # Return dataframe clinical encounters with "ASCVD dx" set as if a ASCVD diagnosis was present during that encounter
-    dx_by_enc_df = enc_dx_df.groupby("cln enc id", as_index=False)["HLP dx"].max()
 
-    # Combine dataframe of diabetic encounters with remainder of encounter information
-    enc_ascvd_df = pd.merge(enc_base_df, ascvd_by_enc_df, left_index=True, right_on="cln enc id")
+pt_dx_reconstructed = (pt_w_dm_df
+                       .merge(pt_w_ascvd_df, left_index=True, right_index=True)
+                       .merge(pt_w_htn_df, left_index=True, right_index=True)
+                       .merge(pt_w_hlp_df, left_index=True, right_index=True)
+                       .merge(pt_w_mood_df, left_index=True, right_index=True)
+                       .merge(pt_w_learndis_df, left_index=True, right_index=True)
+                       .merge(pt_w_dementia_df, left_index=True, right_index=True)
+                       .merge(pt_w_sud_df, left_index=True, right_index=True)
+                       .merge(pt_w_sdoh_df, left_index=True, right_index=True)
+                       .merge(pt_w_noncomp_df, left_index=True, right_index=True)
+                       )
 
-    # Filter encounters to be within the past 2 years
-    recent_enc_ascvd_df = enc_ascvd_df[enc_ascvd_df["cln enc date"] >= two_years_ago]
-
-    # Return dataframe with enterpriseid and whether patient has 2 or more DM diagnoses in the past 2 years
-    pt_w_ascvd_dx = (recent_enc_ascvd_df.groupby(["enterpriseid"])["ASCVD dx"].sum() >= 2).astype("Int8")
-    
-
-    
-    pass
-enc_base_df = pd.read_csv(get_latest_data_file("encounter base"), 
-                          parse_dates=["cln enc date"], 
-                          index_col=["cln enc id"])
-
-enc_dx_df = pd.read_csv(get_latest_data_file("encounter diagnoses"))
-
-
-display(pt_w_ascvd_dx)
+display(pt_dx_reconstructed)
 
 #%%--------------------------- KIDNEY EVALUTION IN DIABETES (KED) ---------------------
 
