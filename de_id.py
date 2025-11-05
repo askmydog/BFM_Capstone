@@ -167,7 +167,7 @@ surg_hx_df      = pd.read_csv(files["surgical history"], parse_dates=["surg hist
 a1c_df          = pd.read_csv(files["a1c"], parse_dates=["labdate"])
 ked_df          = pd.read_csv(files["ked"], parse_dates=["labdate"])
 mammo_df        = pd.read_csv(files["mammogram"], parse_dates=["dt f lst mmmgrm"])
-med_list_df     = pd.read_csv(files["med list"])
+med_list_df     = pd.read_csv(files["med list"]).rename(columns={"med names (single)": "med name"})
 vitals_df       = pd.read_csv(files["encounter vitals"])
 raf_df          = pd.read_csv(files["raf score"])
 
@@ -335,6 +335,46 @@ enc_dx_df["sdoh"] = enc_dx_df["icd10encounterdiagcode"].str.contains(sdoh_patter
 # Z91: Patient noncompliance with treatment, Z281-z289: Immunization refused
 noncomp_pattern = re.compile(r"^Z(?:91|28[1-9])", re.I)
 enc_dx_df["noncomp"] = enc_dx_df["icd10encounterdiagcode"].str.contains(noncomp_pattern, na=False).astype("Int8")
+
+# ----------------------- Medications -----------------------------------------------
+# Create dataframe based on medication_class_terms.csv
+# 1) Load & normalize the lexicon
+lex = pd.read_csv("ref/medication_class_terms.csv")
+lex["term"] = (
+    lex["term"]
+    .astype("string")
+    .str.strip()
+    .str.casefold()      # robust lowercasing
+)
+lex = lex.dropna(subset=["term", "class"])
+
+# 2) Normalize med names once
+meds = med_list_df.copy()
+meds["__name_norm__"] = meds["med name"].astype("string").str.casefold()
+
+# 3) Build a compiled regex PER CLASS with safe escaping + boundaries
+#    Sort terms longest→shortest so specific phrases win (e.g., "insulin glargine" over "insulin")
+def make_regex(terms: list[str]) -> re.Pattern:
+    parts = [re.escape(t) for t in terms if t and t.strip()]
+    parts.sort(key=len, reverse=True)
+    if not parts:
+        # Match nothing
+        return re.compile(r"^\b\B$")
+    # Word boundaries: (?<!\w) and (?!\w) work better for tokens with slashes/hyphens than \b
+    pattern = rf"(?<!\w)(?:{'|'.join(parts)})(?!\w)"
+    return re.compile(pattern, flags=re.IGNORECASE)
+
+rx_by_class = {
+    med_cls: make_regex(group["term"].tolist())
+    for med_cls, group in lex.groupby("class", sort=False)
+}
+
+# 4) Compute indicator columns
+for med_cls, rx in rx_by_class.items():
+    meds[med_cls] = meds["__name_norm__"].str.contains(rx, na=False).astype("Int8")
+
+# 5) Drop the helper column; keep the labeled matrix
+med_list_df = meds.drop(columns="__name_norm__")
 
 # ------------------------- Assign new random IDs (fast, reproducible) -------------------
 
