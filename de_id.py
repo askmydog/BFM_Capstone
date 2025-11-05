@@ -375,6 +375,7 @@ for med_cls, rx in rx_by_class.items():
 
 # 5) Drop the helper column; keep the labeled matrix
 med_list_df = meds.drop(columns="__name_norm__")
+med_list_df.dropna(inplace=True)
 
 # ------------------------- Assign new random IDs (fast, reproducible) -------------------
 
