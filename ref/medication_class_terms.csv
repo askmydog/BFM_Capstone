@@ -607,6 +607,7 @@ Non-DHPCCB,Tiazac
 Non-DHPCCB,Taztia XT
 DHP-CCB,amlodipine
 DHP-CCB,Norvasc
+DHP-CCB,Lotrel
 DHP-CCB,felodipine
 DHP-CCB,Plendil
 DHP-CCB,isradipine
@@ -661,6 +662,7 @@ ARB,telmisartan
 ARB,Micardis
 ARB,valsartan
 ARB,Diovan
+ARB,lotrel
 BetaBlocker,atenolol
 BetaBlocker,Tenormin
 BetaBlocker,bisoprolol
@@ -945,18 +947,18 @@ antiviral-HIV,nelfinavir
 antiviral-HIV,Viracept
 antiviral-HIV,saquinavir
 antiviral-HIV,Invirase
-osphonate,alendronate
-osphonate,Fosamax
-osphonate,risedronate
-osphonate,Actonel
-osphonate,Atelvia
-osphonate,ibandronate
-osphonate,Boniva
-osphonate,zoledronic acid
-osphonate,Reclast
-osphonate,Zometa
-osphonate,pamidronate
-osphonate,Aredia
+bisphosphonate,alendronate
+bisphosphonate,Fosamax
+bisphosphonate,risedronate
+bisphosphonate,Actonel
+bisphosphonate,Atelvia
+bisphosphonate,ibandronate
+bisphosphonate,Boniva
+bisphosphonate,zoledronic acid
+bisphosphonate,Reclast
+bisphosphonate,Zometa
+bisphosphonate,pamidronate
+bisphosphonate,Aredia
 steroid,prednisone
 steroid,Deltasone
 steroid,prednisolone
