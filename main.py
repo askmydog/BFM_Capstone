@@ -88,48 +88,6 @@ ov40_wo_awv.head()
 
 
 # %% --------------------------COLON CANCER SCREENING----------------------------
-#%% ----------------------- SEX ----------------------------------
-
-# patient_sex = demographics_df["patientsex"].copy().to_frame()
-
-s = demographics_df["patientsex"].astype("str")
-
-patient_sex = pd.DataFrame({
-    "is_female":   (s == "F").astype("Int8"),
-    "is_male":     (s == "M").astype("Int8"),
-    "sex_unknown": (~(s == "F") & ~(s == "M")).astype("int8")
-    },
-    index = demographics_df.index
-    )
-
-display(patient_sex)
-
-#%% --------------------------- AGE -----------------------------------
-
-a = demographics_df["age"].astype("int16")
-
-patient_age = pd.DataFrame({
-    "<18": (a < 18).astype("int8"),
-    "18-29": ((a >= 18) & (a < 30)).astype("int8"),
-    "30-39": ((a >= 30) & (a < 40)).astype("int8"),
-    "40-49": ((a >= 40) & (a < 50)).astype("int8"),
-    "50-59": ((a >= 50) & (a < 60)).astype("int8"),
-    "60-69": ((a >= 60) & (a < 70)).astype("int8"),
-    "70-79": ((a >= 70) & (a < 80)).astype("int8"),
-    "80-89": ((a >= 80) & (a < 90)).astype("int8"),
-    ">=90": (a >= 90).astype("int8"),
-})
-
-display(patient_age)
-
-
-
-#%% ------------------------ 
-
-
-
-
-#%% -------------------------- COLON CANCER SCREENING ----------------------------
 
 # Open surgical history file as dataframe
 surghx_df = pd.read_csv(
@@ -208,7 +166,6 @@ pt_w_abnml_mammo_df = mammogram_df[
 a1c_df = pd.read_csv(
     get_latest_data_file("a1c"), parse_dates=["labdate"], dtype={"labvalue": float}
 )
-
 
 recent_a1c_df = a1c_df[a1c_df["labdate"] >= two_years_ago]
 
@@ -318,95 +275,7 @@ recent = enc_with.loc[enc_with["cln enc date"] >= two_years_ago]
 # Counts and flags per patient
 pt_counts = recent.groupby("enterpriseid", as_index=True)[dx_groups].sum()
 pt_flags = (pt_counts >= 2).astype("Int8")
-pt_diagnoses  = (pt_counts >= 2 ).astype("Int8")
 
-
-display(pt_diagnoses)
-
-#%% -------------------------- KED --------------------------------------
-
-ked_df = pd.read_csv("data/ked.csv", parse_dates=["labdate"])
-
-recent_ked_df = ked_df.loc[ked_df["labdate"] >= beginning_of_cal_year].copy()
-
-recent_ked_df["gfr"]  = (recent_ked_df["labanalyte"] == "GFR").astype("Int8")
-recent_ked_df["uacr"] = (recent_ked_df["labanalyte"] == "UACR").astype("Int8")
-
-ked_by_entid_df = recent_ked_df.groupby("enterpriseid")[["uacr", "gfr"]].max()
-
-has_recent_ked = ked_by_entid_df[(ked_by_entid_df["uacr"] == 1) & (ked_by_entid_df["gfr"] == 1)]
-
-diab_pts = pt_diagnoses[pt_diagnoses["dm"]==1]
-
-diab_wo_ked = diab_pts[~diab_pts.index.isin(has_recent_ked.index)]
-
-display(diab_wo_ked)
-
-#%% --------------------- TOBACCO USE --------------------------------------------
-
-tobacco_use = demographics_df.copy()
-
-# display(tobacco_use.columns)
-
-def classify_tobacco_use(s: str) -> str:
-    if not isinstance(s, str):
-        return "unknown"
-    s = s.lower()
-    if "never" in s:
-        return "never"
-    if "former" in s:
-        return "former"
-    if "current" in s:
-        return "current"
-    else:
-        return "unknown" 
-
-tobacco_use["tob_classifier"] = tobacco_use["tobacco use"].apply(classify_tobacco_use)
-
-tobacco_use["never"]   = (tobacco_use["tob_classifier"] == "never").astype("Int8")
-tobacco_use["former"]  = (tobacco_use["tob_classifier"] == "former").astype("Int8")
-tobacco_use["current"] = (tobacco_use["tob_classifier"] == "current").astype("Int8")
-tobacco_use["unknown"] = (tobacco_use["tob_classifier"] == "unknown").astype("Int8")
-
-
-display(tobacco_use)
-
-
-#%% ------------------------- INSURANCE ------------------------------------------
-
-pd.option_context("display.max_rows", None)
-display(demographics_df["patient primary ins pkg name"].value_counts().head(30))
-
-
-
-def classify_insurance(ins:str) -> str:
-    if re.search("self pay", ins, re.I):
-        return "None"
-    if re.search("medicare", ins, re.I):
-        return "Medicare"
-    if re.search("tricare|champva|fep", ins, re.I):
-        return "Mil/Fed"
-    if re.search("medicaid", ins, re.I):
-        return "Medicaid"
-    else:
-        return "Commercial"
-
-insurance = pd.DataFrame(index = demographics_df.index)
-
-
-insurance["prim"] = demographics_df["patient primary ins pkg name"].apply(classify_insurance)
-insurance["sec"]  = demographics_df["patient secondary ins pkg name"].apply(classify_insurance)
-
-
-insurance["none"]       = ((insurance["prim"] == "None")       & (insurance["sec"] == "None")).astype("int8")
-insurance["medicare"]   = ((insurance["prim"] == "Medicare")   | (insurance["sec"] == "Medicare")).astype("int8")
-insurance["mil/fed"]    = ((insurance["prim"] == "Mil/Fed")    | (insurance["sec"] == "Mil/Fed")).astype("int8")
-insurance["medicaid"]   = ((insurance["prim"] == "Medicaid")   | (insurance["sec"] == "Medicaid")).astype("int8")
-insurance["commercial"] = ((insurance["prim"] == "Commercial") | (insurance["sec"] == "Commercial")).astype("int8")
-
-
-display(insurance.head(100))
-    
 
 # display(pt_flags)
 
@@ -425,10 +294,6 @@ pt_meds.drop(columns=["med name"], inplace=True)
 raf_df = pd.read_csv(
     get_latest_data_file("raf"), index_col=["enterpriseid"], dtype={"RAF score": float}
 )
-9
-raf_df = pd.read_csv(get_latest_data_file("raf"), 
-                     index_col=["enterpriseid"],
-                     dtype={"RAF score": float})
 
 pt_w_raf_ov_1 = raf_df[raf_df["RAF score"] >= 1]
 
@@ -509,9 +374,22 @@ target_cols = [
 ]
 
 predictor_cols = [
-    "age",
+    "age", #18-39, 40-64, 65-79, 80+
     "patientsex",
-    "RAF score",
+    "RAF score", #<1, 1-1.9 and >2
+    "marital status",
+    "tobacco use",
+    "alcohol use",
+    "low education",
+    "housing instabilty",
+    "insurance status",
+    "medicare insurance",
+    "medicaid insurance",
+    "hearing impairment",
+    "vision impairment",
+    "cognitive impairment",
+    "provider", # provider a, provider b, ...
+    "providers other than primary", 
     # diagnostic flags from pt_flags
     "dm",
     "ascvd",
@@ -523,6 +401,7 @@ predictor_cols = [
     "sud",
     "sdoh",
     "noncomp",
+    "medications" # long list of medication classes
     # you can also add vitals, BMI, or visit counts if available
 ]
 
