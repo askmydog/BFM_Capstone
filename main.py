@@ -374,22 +374,22 @@ target_cols = [
 ]
 
 predictor_cols = [
-    "age", #18-39, 40-64, 65-79, 80+
+    "age",  # 18-39, 40-64, 65-79, 80+
     "patientsex",
-    "RAF score", #<1, 1-1.9 and >2
-    "marital status",
+    "RAF score",  # <1, 1-1.9 and >2
+    # "marital status",
     "tobacco use",
     "alcohol use",
-    "low education",
-    "housing instabilty",
-    "insurance status",
-    "medicare insurance",
-    "medicaid insurance",
-    "hearing impairment",
-    "vision impairment",
-    "cognitive impairment",
-    "provider", # provider a, provider b, ...
-    "providers other than primary", 
+    "highest education",  # "low education",
+    # "housing instabilty",
+    # "insurance status",
+    # "medicare insurance",
+    # "medicaid insurance",
+    # "hearing impairment",
+    # "vision impairment",
+    # "cognitive impairment",
+    # "provider",  # provider a, provider b, ...
+    # "providers other than primary",
     # diagnostic flags from pt_flags
     "dm",
     "ascvd",
@@ -401,7 +401,7 @@ predictor_cols = [
     "sud",
     "sdoh",
     "noncomp",
-    "medications" # long list of medication classes
+    # "medications",  # long list of medication classes
     # you can also add vitals, BMI, or visit counts if available
 ]
 
@@ -413,12 +413,12 @@ model_df["sex_male"] = (model_df["patientsex"].str.upper().str.startswith("M")).
 # Split into X, y for a sample target ---
 X = model_df[predictor_cols + ["sex_male"]]
 y = model_df["any_missed_preventive"]
-
+# display(X)
 # Quick sanity checks ---
-# print("Data shape:", X.shape)
-# print("Target distribution:")
-# print(y.value_counts(dropna=False))
-# print("\nSample predictors:\n", X.head(5))
+print("Data shape:", X.shape)
+print("Target distribution:")
+print(y.value_counts(dropna=False))
+print("\nSample predictors:\n", X.head(5))
 
 # Optionally save the dataset for modeling
 # model_df.to_csv("data/model_input.csv", index_label="enterpriseid")
@@ -568,7 +568,6 @@ if "latest_vitals_df" in globals():
             bins=[-np.inf, 18.5, 25, 30, 35, np.inf],
             labels=["Under", "Normal", "Over", "Obese", "SevereObese"],
         )
-        .astype("object")
         .cat.add_categories(["Unknown"])
         .fillna("Unknown")
     )
@@ -631,7 +630,14 @@ fe["completed_measures_total"] = fe[completed_cols].sum(axis=1) if completed_col
 
 # ---------- 3C. Minimal predictor set (extend as needed) ----------
 # Categorical candidates you may have (add/trim depending on your exports)
-possible_cats = ["patientsex", "bmi_cat", "insurance", "race", "ethnicity"]
+possible_cats = [
+    "patientsex",
+    "bmi_cat",
+    "insurance",
+    "race",
+    "ethnicity",
+    "highest education",
+]
 for c in possible_cats:
     fe = ensure_col(fe, c, "Unknown")
     fe[c] = fe[c].astype("object").fillna("Unknown")
@@ -665,7 +671,14 @@ if "sex_male" in fe.columns:
 
 # ---------- 3D. Choose a target and build train/test ----------
 # swap to any of: "mammogram_complete", "colorectal_complete", "a1c_complete", "awv_complete"
-TARGET = "any_missed_preventive"
+TARGET = "mammogram_complete"
+# "any_missed_preventive"
+# "awv_complete",
+# "mammogram_complete",
+# "colorectal_complete",
+# "a1c_complete",
+
+display(fe)
 if TARGET not in fe.columns:
     raise ValueError(f"Target column '{TARGET}' not found; ensure Step 2 created it.")
 
@@ -700,14 +713,26 @@ X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.20, random_state=42, stratify=y
 )
 
-print(f"X_train shape: {X_train.shape} | X_test shape: {X_test.shape}")
-print("Target distribution (train):")
-print(y_train.value_counts(normalize=True).rename("share"))
+# print(f"X_train shape: {X_train.shape} | X_test shape: {X_test.shape}")
+# print("Target distribution (train):")
+# print(y_train.value_counts(normalize=True).rename("share"))
 
-# ---------- 3F. Example: build a modeling pipeline (plug in any estimator) ----------
-#   Swap in LogisticRegression or XGBClassifier in Step 4
+# ---------- Example: build a modeling pipeline (plug in any estimator) ----------
 from xgboost import XGBClassifier
+import xgboost as xgb
+from sklearn.pipeline import Pipeline
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import roc_auc_score, f1_score, classification_report
+import numpy as np
+import shap
+import streamlit as st
 
+# 1. Train/test split
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, stratify=y, test_size=0.2, random_state=42
+)
+
+# 2. Pipeline with preprocessor + XGBoost
 clf = Pipeline(
     steps=[
         ("pre", preprocessor),
@@ -728,27 +753,58 @@ clf = Pipeline(
     ]
 )
 
-# this just shows the end-to-end object is ready:
-# clf.fit(X_train, y_train)
-# y_pred = clf.predict(X_test)
-# y_proba = clf.predict_proba(X_test)[:,1]
 
+clf.fit(X_train, y_train)
 
-# from sklearn.model_selection import train_test_split, StratifiedKFold, cross_val_score
-# from sklearn.metrics import roc_auc_score, f1_score, classification_report
-# from xgboost import XGBClassifier
+# 4. Predictions + metrics
+y_pred = clf.predict(X_test)
+y_proba = clf.predict_proba(X_test)[:, 1]
 
-# X_train, X_test, y_train, y_test = train_test_split(X, y, stratify=y, test_size=0.2, random_state=42)
+print(classification_report(y_test, y_pred))
+print("ROC AUC:", roc_auc_score(y_test, y_proba))
+print("F1:", f1_score(y_test, y_pred))
 
-# model = XGBClassifier(max_depth=4, learning_rate=0.1, n_estimators=200)
-# model.fit(X_train, y_train)
-# y_pred = model.predict(X_test)
-# print(classification_report(y_test, y_pred))
+# 5. SHAP values using XGBoost's built-in pred_contribs
 
-# import shap
-# explainer = shap.Explainer(model, X_train)
-# shap.summary_plot(explainer(X_test))
+# Transform data through the preprocessor
+X_test_trans = clf.named_steps["pre"].transform(X_test)
 
-# import streamlit as st
-# st.title("Preventive Care Risk Dashboard")
-# st.metric("At-Risk Patients", f"{master_df['predicted_risk'].sum()}")
+# Ensure dense matrix for XGBoost & SHAP plotting
+if hasattr(X_test_trans, "toarray"):
+    X_test_dense = X_test_trans.toarray()
+else:
+    X_test_dense = X_test_trans
+
+xgb_model = clf.named_steps["model"]
+
+# Get feature names from the preprocessor if available
+try:
+    feature_names = clf.named_steps["pre"].get_feature_names_out()
+    display(feature_names)
+except TypeError:
+    # Fallback: generic feature names
+    feature_names = np.array([f"feature_{i}" for i in range(X_test_dense.shape[1])])
+
+# Build a DMatrix for XGBoost's built-in SHAP values
+# (Let XGBoost handle feature names internally)
+dtest = xgb.DMatrix(X_test_dense)
+
+# Get SHAP values from XGBoost directly
+# This returns (n_samples, n_features + 1); last col is bias term
+shap_values_full = xgb_model.get_booster().predict(dtest, pred_contribs=True)
+
+# Drop the bias term so it matches your feature matrix
+shap_values = shap_values_full[:, :-1]
+
+# Plot with shap's summary_plot
+shap.summary_plot(
+    shap_values,
+    features=X_test_dense,
+    feature_names=feature_names,
+)
+
+# 6. Streamlit dashboard
+# Ensure master_df["predicted_risk"] is defined above, e.g.:
+# master_df["predicted_risk"] = clf.predict_proba(X_for_scoring)[:, 1]
+st.title("Preventive Care Risk Dashboard")
+st.metric("At-Risk Patients", f"{master_df['predicted_risk'].sum()}")
